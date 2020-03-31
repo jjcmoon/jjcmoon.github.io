@@ -1,4 +1,177 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://maene.dev/feed.xml" rel="self" type="application/atom+xml" /><link href="https://maene.dev/" rel="alternate" type="text/html" /><updated>2020-02-02T14:03:38+01:00</updated><id>https://maene.dev/feed.xml</id><title type="html">Jaron J.C. Maene</title><subtitle>A blog about technology and stuff related</subtitle><entry><title type="html">What’s the complexity of Fibonacci?</title><link href="https://maene.dev/fib/" rel="alternate" type="text/html" title="What's the complexity of Fibonacci?" /><published>2020-01-16T19:35:00+01:00</published><updated>2020-01-16T19:35:00+01:00</updated><id>https://maene.dev/fib</id><content type="html" xml:base="https://maene.dev/fib/">&lt;p&gt;The Fibonacci series is so well-known, that introducing it seems almost redundant. But for good measure:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-03-31T17:05:56+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jaron J.C. Maene</title><subtitle>A blog about technology and stuff related</subtitle><entry><title type="html">Toki Pona</title><link href="http://localhost:4000/toki-pona/" rel="alternate" type="text/html" title="Toki Pona" /><published>2020-03-31T11:57:00+02:00</published><updated>2020-03-31T11:57:00+02:00</updated><id>http://localhost:4000/toki-pona</id><content type="html" xml:base="http://localhost:4000/toki-pona/">&lt;p&gt;&lt;em&gt;toki! nimi mi li jan Mun. mi wile e ni: mi pana e sona pi toki pana tawa sina.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;what&quot;&gt;What?&lt;/h1&gt;
+
+&lt;p&gt;The introduction is written in &lt;a href=&quot;https://en.wikipedia.org/wiki/Toki_Pona&quot;&gt;Toki Pona&lt;/a&gt;. It’s a language I learned last weekend. Yes, you heard me right, I learned it in a weekend. Not because I have incredible memory skills, but because it’s a very simple language. Toki Pona is an artificial language that only has about 120 words, and all its grammar fits on a single page.&lt;/p&gt;
+
+&lt;p&gt;You might be a bit incredulous at this. English has over hundred thousand words! Toki Pona can’t be as good as a regular language, can it? Can you even have normal conversions in such a basic language? Well, kind off yes but also no.&lt;/p&gt;
+
+&lt;h2 id=&quot;simplicity&quot;&gt;Simplicity&lt;/h2&gt;
+
+&lt;p&gt;Toki Pona’s lexical simplicity is achieved by several means:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Vagueness&lt;/strong&gt;. While most English words have a single meaning, a word in Toki Pona can mean a lot of different things. Words in Toki Pona don’t strive to indicate a specific meaning, but rather a general concept. For example, the world “suli” refers to the concept “big”. So it could be translated as either large, long, high, important, etc. How do you know the difference? Sometimes through context, sometimes you don’t.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Context&lt;/strong&gt;. The meaning of a word in Toki Pona can be highly dependent on its context. For example, “poki” refers to the concept of a container. It could be translated as box, bag, cup, drawer, etc. Without surrounding context, it’s impossible to know which. But say, somebody tells you in a conversation: “o pana e poki tawa mi”. Meaning “Give me the poki”. Here you’ll probably know what the poki is, e.g. because the other person is looking at the bag you’re holding in your hand.&lt;br /&gt;
+Also note that the most words in Toki Pona have multiple roles. “sama” is used for the idea of “sameness”. It could translated as “like” when used as a preposition, “similar” as adjective, “equality” as a noun or “equalize” as a noun. Toki Pona has markers which indicate what role a word plays.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Analysis&lt;/strong&gt;. In linguistics, &lt;a href=&quot;https://en.wikipedia.org/wiki/Analytic_language&quot;&gt;analysis&lt;/a&gt; refers to adding meaning by adding words. For example, if you want to express that an apple is small in english, you can add the word little before it. The opposite of analysis is synthesis. This means instead of adding words, you change the existing words (inflection). In dutch you can say that an “appel” is small without adding extra words, you can instead add the postfix -tje: “appeltje”. English is mostly analytic, but has some synthetic features here and there: e.g. the plural: “apples”.&lt;br /&gt;
+Toki Pona is purely analytic (even plurals). In the example above, a “poki” could mean one bag, or five bags or room full of bags. You can specify by e.g. adding the word for one: “wan”. Similarly, verbs don’t have any tenses. In linguistic jargon, it’s an oligoisolating language&lt;sup id=&quot;fnref:irony&quot;&gt;&lt;a href=&quot;#fn:irony&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;. This means it has very little words, and builds meaning by adding them together. So while Toki Pona is vague by default, you can always choose to add explicit context by adding words.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Let’s clarify the above theory with an example. Say you want to express “orange juice” (analytic concept in english). There is no word for orange in Toki Pona, and neither for juice. The simplest way to say it, would be “telo”. Literally this means fluid. Whether this is sufficient depends on context. You could use it if you’re saying “The fluid is good”, while you have a glass of orange juice in your hand. But if you’re ordering something in a bar, you’ll want to be more precise. To add meaning, you could say “telo kili”. Kili means fruit. So this means “fruit fluid”. If you want to be even more precise, you can add more properties: “telo kili jelo lajo”. This means orange fruit juice. Note that there is no word for the color orange, so we say yellow red: “jelo lajo”. In the extreme you could say “telo jelo laja pi kili Sonko”, literally “yellow red fluid from Chinese fruit”.&lt;/p&gt;
+
+&lt;h1 id=&quot;why&quot;&gt;Why?&lt;/h1&gt;
+
+&lt;p&gt;Let’s be clear: you can’t really use Toki Pona to have an in depth discussion on warfare in 15th-century Japan. Or about quantum mechanics. Or about anything requiring high amounts of precision and jargon like science or law. But this was never the intent. Much like you have computer languages that are made for a specific purpose, Toki Pona is not a general-purpose language.&lt;/p&gt;
+
+&lt;p&gt;That being said, you can say much more than I would have ever expected before learning it. And the language has a lot of interesting applications. I’ll discuss the most prominent ones and my views on them.&lt;/p&gt;
+
+&lt;h3 id=&quot;1-experimentation&quot;&gt;1. Experimentation&lt;/h3&gt;
+
+&lt;p&gt;Toki Pona explores many interesting linguistic/philosophic questions. How simple can you really make a language? Does it affect how you think in that language? While questions like these might not suffice to entice you to learn an entirely new language, it is important to mention this, as it was the original reason for creating Toki Pona.&lt;/p&gt;
+
+&lt;h3 id=&quot;2-philosophy&quot;&gt;2. Philosophy&lt;/h3&gt;
+
+&lt;p&gt;At first the vagueness of the language might seem as a big weakness. However, to really understand Toki Pona, you should know that vagueness is not a unfortunate side-effect of Toki Pona’s simplicity. It is a deliberate feature. In this regard, Toki Pona leans on taoist ideas. Why say lot word when few word do trick?&lt;/p&gt;
+
+&lt;p&gt;Some view Toki Pona as a desire for a simpler world, through simpler words. There is only a single word for everything concerning the modern digital word “ijo”. Literally tool, or machine. In contrast, almost 10% of the very limited Toki Pona vocabulary are words about nature. So in a sense, Toki Pona is most adept in the conversations of a farmer thousands years ago. Simple conversations on nature, food, life and emotions.&lt;/p&gt;
+
+&lt;p&gt;By making vagueness the default, and preciseness extremely verbose, the speaker is automatically inclined to simplicity. It forces a certain clarity and reductionism onto the speaker. To speak Toki Pona, you need to deconstruct ideas to its elements. What’s a boat? You could see it as a space “tomo”, that moves “tawa” over water “telo”. So “boat” is translated as “tomo tawa telo”.&lt;/p&gt;
+
+&lt;p&gt;This reducing is also interpreting. Toki Pona is very much a biased language. For example, the usual construct for friend in Toki Pona is “jan pona”, literally “good person”. Note that this makes it difficult to say “he’s a good person” about someone you don’t know. This is what I mean with the Toki Pona philosophy. Why should a bad person be your friend? Or why wouldn’t a good person be friendly to you?&lt;/p&gt;
+
+&lt;p&gt;Now is a good time to clarify the meaning of Toki Pona. “toki” means (as a noun) speech or language, and “pona” was already introduced above as “good”. But in true taoist fashion, “pona” can also mean “simple”. Simple is good. Good is simple. And Toki Pona is a good language.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Toki Pona&lt;/th&gt;
+      &lt;th&gt;Literal translation&lt;/th&gt;
+      &lt;th&gt;Colloquial translation&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;jan lili li toki e ni tawa jan sona:&lt;/td&gt;
+      &lt;td&gt;Little person say this toward knowledge person:&lt;/td&gt;
+      &lt;td&gt;The children asked the wise man:&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;“sona pona li seme?”&lt;/td&gt;
+      &lt;td&gt;“The good knowledge is what?”&lt;/td&gt;
+      &lt;td&gt;“What is wisdom?”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;jan sona li toki:&lt;/td&gt;
+      &lt;td&gt;Knowledge man says:&lt;/td&gt;
+      &lt;td&gt;The wise man answers:&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;“sina wile moku la o moku.&lt;/td&gt;
+      &lt;td&gt;“you want food then eat&lt;/td&gt;
+      &lt;td&gt;“Eat when you’re hungry,&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;sina wile lape la o lape.”&lt;/td&gt;
+      &lt;td&gt;you want sleep then sleep.”&lt;/td&gt;
+      &lt;td&gt;sleep when you’re tired.”&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;While some people really like this philosophy, not everyone in the community adheres to it. For some, it’s just a simple language. The idea that language shapes the way we think (&lt;a href=&quot;https://en.wikipedia.org/wiki/Linguistic_relativity&quot;&gt;Linguistic relativity&lt;/a&gt;, also known as Sapir–Whorf hypothesis), has been shown to be much less of a big deal than a lot of people want to believe. I’m saying this because some of the more sensational source frame it as if just speaking Toki Pona will make you a taoist. And yes, Toki Pona is still perfectly capable of expressing that your friend is a huge asshole (“jan pona mi li ike mute tawa mi”).&lt;/p&gt;
+
+&lt;h3 id=&quot;3-poetry&quot;&gt;3. Poetry&lt;/h3&gt;
+
+&lt;p&gt;Because the aforementioned vagueness and interpretability, I find that Toki Pona is actually a great language for a certain kind of poetry. As a writer, you have excellent control. You reveal as much as you want. Observe the English sentence: “She looked.”. In two words we already gave away that the object is female, and it happened in the past. Disclosing this is hardly optional in the English language. “looking was being done at some time” doesn’t quite roll of the tongue. In Toki Pona you just say “ona li lukin”. Deliberate vagueness leaves a lot of room for double meanings, innuendos and alternative interpretations.&lt;sup id=&quot;fnref:chinese&quot;&gt;&lt;a href=&quot;#fn:chinese&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;As a reader, interpreting a Toki Pona poem is like a fun puzzle. Decrypting meaning. Often you can’t nail down what a title means, until you have read the entire text. You need to think about how the author would think, how he/she would deconstruct the world. It creates a certain interplay of expectation between writer and reader that I have rarely seen in other languages.&lt;/p&gt;
+
+&lt;p&gt;For the next poem, I’ll only provide literal translation, try to devise it’s meaning. This isn’t the same as translating directly from Toki Pona, but it gives you a feeling for it.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;wan taso&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;only one&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ijo li moke e mi&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Thing eats me&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;mi wile pakale&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;I want damage&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;pimeja li tawa insa kon mi&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;dark is toward my inside essence&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;jan ala li ken sona e pilin ike mi&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;No person can know my negative feeling.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;toki musi o, sina jan pona mi wan taso&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;O entertaining language, you are my only one good person.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;telo pimeja ni ti telo loje mi, li ale mi.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;This dark fluid is my red fluid, is my all.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;tenpo ale la pimeja li lon.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;All time when the dark exists.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;You can find the actual translation on &lt;a href=&quot;https://en.wikipedia.org/wiki/Toki_Pona#Sample_texts&quot;&gt;wikipedia&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;4-international-auxiliary-language&quot;&gt;4. International Auxiliary Language&lt;/h3&gt;
+
+&lt;p&gt;An international auxiliary language (IAL) is a language meant for communication between people from different countries that do not share a common language. A kind of worldwide neutral second-language. There have been many attempts at creating an IAL, the most notable of which is Esperanto.&lt;/p&gt;
+
+&lt;p&gt;Some have proposed that Toki Pona would make a good IAL. Indeed, it’s incredible how easy it is to learn. You could teach it to children at school in under a week. Another advantage of the language is its pronunciation. Toki Pona uses only a subset of the sounds used in English. The sounds are chosen to be a kind of greatest common divisor of all prevalent languages. This means, combined with the alternating consonant-vowel word structure, that Toki Pona is easily pronounceable, no matter where you’re from.&lt;/p&gt;
+
+&lt;p&gt;Personally I think Toki Pona would be a pretty horrible IAL. An IAL is not exclusively used to ask where the toilet is when you’re on holiday. The IAL is also what scientist write their papers in, so that everyone can learn about their results, or what lawyers use to write an international contract. Frankly, I feel that Toki Pona is not expressive enough to be an IAL.&lt;/p&gt;
+
+&lt;p&gt;That being said, I don’t think that there’s any other language that has what it takes to become a true IAL. What lacks is not any linguistic innovation, but political support. But that is a discussion for another time.&lt;/p&gt;
+
+&lt;h1 id=&quot;finishing-off&quot;&gt;Finishing off&lt;/h1&gt;
+
+&lt;p&gt;So should you learn Toki Pona? Probably not. But if that’s not going to stop you, a great set of lessons can be found &lt;a href=&quot;http://tokipona.net/tp/janpije/okamasona.php&quot;&gt;here&lt;/a&gt;.&lt;sup id=&quot;fnref:joke&quot;&gt;&lt;a href=&quot;#fn:joke&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt; Personally, I found it a really fun.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;mi wile e ni: ali li pona tawa sina.&lt;/em&gt;&lt;br /&gt;
+&lt;em&gt;mi tawa.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://tokipona.org/&quot;&gt;lipu pi mama toki pona&lt;/a&gt;. Site of the creator of Toki Pona, Sonja Lang.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://tokipona.net/tp/janpije/index.php&quot;&gt;lipu pi jan Pije&lt;/a&gt;. Fan site with a lot of good content.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Toki_Pona&quot;&gt;lipu Wikipesija&lt;/a&gt;. Toki Pona Wikipedia page.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://forums.tokipona.org/&quot;&gt;kulupu toki&lt;/a&gt;. Toki pona forum.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://old.reddit.com/r/tokipona/&quot;&gt;lipu Wesi&lt;/a&gt;. Toki pona subreddit.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;footnotes&quot;&gt;Footnotes&lt;/h1&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:irony&quot;&gt;
+      &lt;p&gt;Note the irony: oligoisolating is a synthetic word, built from unusual components. But it means analytic concepts, build from common components. To no surprise, there is an actual for this: heterological. &lt;a href=&quot;#fnref:irony&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:chinese&quot;&gt;
+      &lt;p&gt;I’ve heard Chinese (both Mandarin and Cantonese) is also good at this due to its highly analytic nature. Sadly I don’t speak any Chinese language, so I can’t comment on it myself. &lt;a href=&quot;#fnref:chinese&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:joke&quot;&gt;
+      &lt;p&gt;For the American readers, I can also recommend the following &lt;a href=&quot;http://tokipona.net/tp/janpije/zompist.php&quot;&gt;useful phrases&lt;/a&gt; to impress the Lojban nerds on your travels. &lt;a href=&quot;#fnref:joke&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name>jaron</name></author><category term="blog" /><category term="linguistics" /><category term="toki pona" /><category term="philosophy" /><category term="taoism" /><summary type="html">toki! nimi mi li jan Mun. mi wile e ni: mi pana e sona pi toki pana tawa sina.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/markdown.jpg" /><media:content medium="image" url="http://localhost:4000/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">What’s the complexity of Fibonacci?</title><link href="http://localhost:4000/fib/" rel="alternate" type="text/html" title="What's the complexity of Fibonacci?" /><published>2020-01-16T19:35:00+01:00</published><updated>2020-01-16T19:35:00+01:00</updated><id>http://localhost:4000/fib</id><content type="html" xml:base="http://localhost:4000/fib/">&lt;p&gt;The Fibonacci series is so well-known, that introducing it seems almost redundant. But for good measure:&lt;/p&gt;
 
 &lt;p&gt;&lt;span class=&quot;katex-display&quot;&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msub&gt;&lt;mi&gt;F&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;F&lt;/mi&gt;&lt;mrow&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;/msub&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;F&lt;/mi&gt;&lt;mrow&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/mrow&gt;&lt;/msub&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;F_n = F_{n-1} + F_{n-2}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.83333em;vertical-align:-0.15em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.13889em;&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.151392em;&quot;&gt;&lt;span style=&quot;top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mathdefault mtight&quot;&gt;n&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.15em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2777777777777778em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mrel&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2777777777777778em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.891661em;vertical-align:-0.208331em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.13889em;&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.301108em;&quot;&gt;&lt;span style=&quot;top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathdefault mtight&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mbin mtight&quot;&gt;−&lt;/span&gt;&lt;span class=&quot;mord mtight&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.208331em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222222222222222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222222222222222em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.891661em;vertical-align:-0.208331em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.13889em;&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.301108em;&quot;&gt;&lt;span style=&quot;top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathdefault mtight&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mbin mtight&quot;&gt;−&lt;/span&gt;&lt;span class=&quot;mord mtight&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.208331em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
 
@@ -437,7 +610,7 @@ and
       &lt;p&gt;&lt;a href=&quot;https://hal.archives-ouvertes.fr/hal-02070778/document&quot;&gt;Integer multiplication in time O(n log n), by David Harvey and Joris van der Hoeven&lt;/a&gt; &lt;a href=&quot;#fnref:nlogn&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
-&lt;/div&gt;</content><author><name>jaron</name></author><category term="blog" /><category term="math" /><category term="complexity" /><category term="Fibonacci" /><summary type="html">The Fibonacci series is so well-known, that introducing it seems almost redundant. But for good measure:</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://maene.dev/assets/images/markdown.jpg" /><media:content medium="image" url="https://maene.dev/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">:ramen: Indigo, minimalist jekyll theme</title><link href="https://maene.dev/indigo-jekyll-theme/" rel="alternate" type="text/html" title=":ramen: Indigo, minimalist jekyll theme" /><published>2016-01-23T22:10:00+01:00</published><updated>2016-01-23T22:10:00+01:00</updated><id>https://maene.dev/indigo-jekyll-theme</id><content type="html" xml:base="https://maene.dev/indigo-jekyll-theme/">&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/sergiokopplin/indigo/gh-pages/assets/screen-shot.png&quot; alt=&quot;Screenshot&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;</content><author><name>jaron</name></author><category term="blog" /><category term="math" /><category term="complexity" /><category term="Fibonacci" /><summary type="html">The Fibonacci series is so well-known, that introducing it seems almost redundant. But for good measure:</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/markdown.jpg" /><media:content medium="image" url="http://localhost:4000/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">:ramen: Indigo, minimalist jekyll theme</title><link href="http://localhost:4000/indigo-jekyll-theme/" rel="alternate" type="text/html" title=":ramen: Indigo, minimalist jekyll theme" /><published>2016-01-23T22:10:00+01:00</published><updated>2016-01-23T22:10:00+01:00</updated><id>http://localhost:4000/indigo-jekyll-theme</id><content type="html" xml:base="http://localhost:4000/indigo-jekyll-theme/">&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/sergiokopplin/indigo/gh-pages/assets/screen-shot.png&quot; alt=&quot;Screenshot&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Example of project - Indigo Minimalist Jekyll Template - &lt;a href=&quot;http://sergiokopplin.github.io/indigo/&quot;&gt;Demo&lt;/a&gt;. This is a simple and minimalist template for Jekyll for those who likes to eat noodles.&lt;/p&gt;
 
