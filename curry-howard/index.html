@@ -14,21 +14,21 @@
     <meta property="og:type" content="profile">
 
     <!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Toki Pona | Jaron J.C. Maene</title>
+<title>Curry-howard in Java | Jaron J.C. Maene</title>
 <meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="Toki Pona" />
+<meta property="og:title" content="Curry-howard in Java" />
 <meta name="author" content="jaron" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Toki pona, the simple language" />
-<meta property="og:description" content="Toki pona, the simple language" />
-<link rel="canonical" href="https://maene.dev/toki-pona/" />
-<meta property="og:url" content="https://maene.dev/toki-pona/" />
+<meta name="description" content="Practical primer to the Curry-Howard correspondence" />
+<meta property="og:description" content="Practical primer to the Curry-Howard correspondence" />
+<link rel="canonical" href="https://maene.dev/curry-howard/" />
+<meta property="og:url" content="https://maene.dev/curry-howard/" />
 <meta property="og:site_name" content="Jaron J.C. Maene" />
 <meta property="og:image" content="https://maene.dev/assets/images/markdown.jpg" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-03-31T11:57:00+02:00" />
+<meta property="article:published_time" content="2020-07-23T11:57:00+02:00" />
 <script type="application/ld+json">
-{"image":"https://maene.dev/assets/images/markdown.jpg","@type":"BlogPosting","url":"https://maene.dev/toki-pona/","dateModified":"2020-03-31T11:57:00+02:00","datePublished":"2020-03-31T11:57:00+02:00","headline":"Toki Pona","mainEntityOfPage":{"@type":"WebPage","@id":"https://maene.dev/toki-pona/"},"author":{"@type":"Person","name":"jaron"},"description":"Toki pona, the simple language","@context":"https://schema.org"}</script>
+{"image":"https://maene.dev/assets/images/markdown.jpg","@type":"BlogPosting","url":"https://maene.dev/curry-howard/","dateModified":"2020-07-23T11:57:00+02:00","datePublished":"2020-07-23T11:57:00+02:00","headline":"Curry-howard in Java","mainEntityOfPage":{"@type":"WebPage","@id":"https://maene.dev/curry-howard/"},"author":{"@type":"Person","name":"jaron"},"description":"Practical primer to the Curry-Howard correspondence","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     
@@ -54,7 +54,7 @@
 <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
 
 
-    <link rel="canonical" href="https://maene.dev/toki-pona/">
+    <link rel="canonical" href="https://maene.dev/curry-howard/">
     <link rel="alternate" type="application/rss+xml" title="" href="https://maene.dev/feed.xml" />
 
     <style>
@@ -1443,204 +1443,274 @@ pre {
 
 
 
-<h1 class="title">Toki Pona</h1>
+<h1 class="title">Curry-howard in Java</h1>
 
 <span class="date">
-    <time datetime="31-03-2020">Tuesday. March 31, 2020</time>
+    <time datetime="23-07-2020">Thursday. July 23, 2020</time>
     
 </span>
 
 
     <div class="post-tags">
         
-            <a class="item" href="https://maene.dev/tags/#linguistics">linguistics</a>
+            <a class="item" href="https://maene.dev/tags/#type-theory">type theory</a>
         
-            <a class="item" href="https://maene.dev/tags/#philosophy">philosophy</a>
-        
-            <a class="item" href="https://maene.dev/tags/#taoism">taoism</a>
+            <a class="item" href="https://maene.dev/tags/#curry-howard">Curry-Howard</a>
         
     </div>
 
 
-<p><em>toki! nimi mi li Mun. mi wile e ni: mi pana e sona pi toki pana tawa sina.</em></p>
+<p>The Curry-Howard Isomorphism (CHI) is, in my humble opinion, one of the more fascinating discoveries in computer science. However it is little known, as introductions are often too theoretical and founded on terse pre-assumed mathematical knowledge. Practical usage often relies on advanced languages based with dependent types (like Idris or Agda), which in their turn assume a good understanding of functional languages like Haskell. That can pose quite a barrier for the casual bystander who just wants to dip their toes in the water without getting sucked in into the rapids.</p>
 
-<h1 id="what">What?</h1>
+<p>So for these people, I will introduce the CHI with examples in Java, giving a small primer how it can be used. Of course, the type system of Java is very limiting compared to the functional languages listed above (there’s a reason they were made!) but I think it will suffice to demonstrate some of the basic ideas.</p>
 
-<p>The introduction is written in <a href="https://en.wikipedia.org/wiki/Toki_Pona">Toki Pona</a>. It’s a language I learned last weekend. Yes, you heard me right, I learned it in a weekend. Not because I have incredible memory skills, but because it’s a very simple language. Toki Pona is an artificial language that only has about 120 words, and all its grammar fits on a single page.</p>
+<h1 id="wait-but-why">Wait but why?</h1>
 
-<p>You might be a bit incredulous at this. English has over hundred thousand words! Toki Pona can’t be as good as a regular language, can it? Can you even have normal conversions in such a basic language? Well, kind off yes but also no.</p>
+<p>If you’re the kind of person that likes to know why you should care about something before getting invested: this section is for you. The people who like interesting stuff for its own right and don’t care about applications can freely skip this.</p>
 
-<h2 id="simplicity">Simplicity</h2>
+<p>So why is this connection between math and code important? Well, when a connection is found between two (seemingly) different fields, this allows you to us use tools/tricks from one field on the other one, creating new opportunities. So as a programmer, this allows you to use the power of maths for your programs. A case where this is very useful is verification. Current forms of testing like unit testing allows the creator to eliminate a fair share of bugs, but it does not give complete certainty of the correctness of the code. Using the CHI however, it is possible to create mathematical proofs of correctness, giving absolute certainty. (Although of course this is not easy.)</p>
 
-<p>Toki Pona’s lexical simplicity is achieved by several means:</p>
+<p>On the other side, mathematicians can leverage computers in their work via the CHI. Using the correspondence, they can encode their proofs in programs. These programs will only compile if the proof is correct. Thus eliminating the risk that there is a subtle error in the proof that nobody noticed.</p>
 
-<ul>
-  <li><strong>Vagueness</strong>. While most English words have a single meaning, a word in Toki Pona can mean a lot of different things. Words in Toki Pona don’t strive to indicate a specific meaning, but rather a general concept. For example, the world “suli” refers to the concept “big”. So it could be translated as either large, long, high, important, etc. How do you know the difference? Sometimes through context, sometimes you don’t.</li>
-  <li><strong>Context</strong>. The meaning of a word in Toki Pona can be highly dependent on its context. For example, “poki” refers to the concept of a container. It could be translated as box, bag, cup, drawer, etc. Without surrounding context, it’s impossible to know which. But say, somebody tells you in a conversation: “o pana e poki tawa mi”. Meaning “Give me the poki”. Here you’ll probably know what the poki is, e.g. because the other person is looking at the bag you’re holding in your hand.<br />
-Also note that the most words in Toki Pona have multiple roles. “sama” is used for the idea of “sameness”. It could translated as “like” when used as a preposition, “similar” as adjective, “equality” as a noun or “equalize” as a noun. Toki Pona has markers which indicate what role a word plays.</li>
-  <li><strong>Analysis</strong>. In linguistics, <a href="https://en.wikipedia.org/wiki/Analytic_language">analysis</a> refers to adding meaning by adding words. For example, if you want to express that an apple is small in english, you can add the word little before it. The opposite of analysis is synthesis. This means instead of adding words, you change the existing words (inflection). In dutch you can say that an “appel” is small without adding extra words, you can instead add the postfix -tje: “appeltje”. English is mostly analytic, but has some synthetic features here and there: e.g. the plural: “apples”.<br />
-Toki Pona is purely analytic (even plurals). In the example above, a “poki” could mean one bag, or five bags or room full of bags. You can specify by e.g. adding the word for one: “wan”. Similarly, verbs don’t have any tenses. In linguistic jargon, it’s an oligoisolating language<sup id="fnref:irony"><a href="#fn:irony" class="footnote">1</a></sup>. This means it has very little words, and builds meaning by adding them together. So while Toki Pona is vague by default, you can always choose to add explicit context by adding words.</li>
-</ul>
+<p>There is certainly more to be discussed, like what the difficulties are with this verification, or what other applications are, but this would lead us to far.</p>
 
-<p>Let’s clarify the above theory with an example. Say you want to express “orange juice” (analytic concept in english). There is no word for orange in Toki Pona, and neither for juice. The simplest way to say it, would be “telo”. Literally this means fluid. Whether this is sufficient depends on context. You could use it if you’re saying “The fluid is good”, while you have a glass of orange juice in your hand. But if you’re ordering something in a bar, you’ll want to be more precise. To add meaning, you could say “telo kili”. Kili means fruit. So this means “fruit fluid”. If you want to be even more precise, you can add more properties: “telo kili jelo lajo”. This means orange fruit juice. Note that there is no word for the color orange, so we say yellow red: “jelo lajo”. In the extreme you could say “telo jelo laja pi kili Sonko”, literally “yellow red fluid from Chinese fruit”.</p>
+<h1 id="the-correspondence">The Correspondence</h1>
 
-<h1 id="why">Why?</h1>
-
-<p>Let’s be clear: you can’t really use Toki Pona to have an in depth discussion on warfare in 15th-century Japan. Or about quantum mechanics. Or about anything requiring high amounts of precision and jargon like science or law. But this was never the intent. Much like you have computer languages that are made for a specific purpose, Toki Pona is not a general-purpose language.</p>
-
-<p>That being said, you can say much more than I would have ever expected before learning it. And the language has a lot of interesting applications. I’ll discuss the most prominent ones and my views on them.</p>
-
-<h3 id="1-experimentation">1. Experimentation</h3>
-
-<p>Toki Pona explores many interesting linguistic/philosophic questions. How simple can you really make a language? Does it affect how you think in that language? While questions like these might not suffice to entice you to learn an entirely new language, it is important to mention this, as it was the original reason for creating Toki Pona.</p>
-
-<h3 id="2-philosophy">2. Philosophy</h3>
-
-<p>At first the vagueness of the language might seem as a big weakness. However, to really understand Toki Pona, you should know that vagueness is not a unfortunate side-effect of Toki Pona’s simplicity. It is a deliberate feature. In this regard, Toki Pona leans on taoist ideas. Why say lot word when few word do trick?</p>
-
-<p>Some view Toki Pona as a desire for a simpler world, through simpler words. There is only a single word for everything concerning the modern digital word “ilo”. Literally tool, or machine. In contrast, almost 10% of the very limited Toki Pona vocabulary are words about nature. So in a sense, Toki Pona is most adept in the conversations of a farmer thousands years ago. Simple conversations on nature, food, life and emotions.</p>
-
-<p>By making vagueness the default, and preciseness extremely verbose, the speaker is automatically inclined to simplicity. It forces a certain clarity and reductionism onto the speaker. To speak Toki Pona, you need to deconstruct ideas to its elements. What’s a boat? You could see it as a space “tomo”, that moves “tawa” over water “telo”. So “boat” is translated as “tomo tawa telo”.</p>
-
-<p>This reducing is also interpreting. Toki Pona is very much a biased language. For example, the usual construct for friend in Toki Pona is “jan pona”, literally “good person”. Note that this makes it difficult to say “he’s a good person” about someone you don’t know. This is what I mean with the Toki Pona philosophy. Why should a bad person be your friend? Or why wouldn’t a good person be friendly to you?</p>
-
-<p>Now is a good time to clarify the meaning of Toki Pona. “toki” means (as a noun) speech or language, and “pona” was already introduced above as “good”. But in true taoist fashion, “pona” can also mean “simple”. Simple is good. Good is simple. And Toki Pona is a good language.</p>
+<p>Let’s dive in. The CHI was discovered by observing that there is a very deep connecting (an isomorphism, as mathematicians say) between mathematics and programming. It says that, when a mathematician states some theorem in a mathematical framework, and proves this theorem, and a programmer states some type in a programming language, and creates a program that constructs this type, they are fundamentally doing the same thing.</p>
 
 <table>
   <thead>
     <tr>
-      <th>Toki Pona</th>
-      <th>Literal translation</th>
-      <th>Colloquial translation</th>
+      <th>Math</th>
+      <th>Programming</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>jan lili li toki e ni tawa jan sona:</td>
-      <td>Little person say this toward knowledge person:</td>
-      <td>The children asked the wise man:</td>
+      <td>Theorem</td>
+      <td>Type</td>
     </tr>
     <tr>
-      <td>“sona pona li seme?”</td>
-      <td>“The good knowledge is what?”</td>
-      <td>“What is wisdom?”</td>
+      <td>Proof (for a theorem)</td>
+      <td>Code (to generate a type)</td>
     </tr>
     <tr>
-      <td>jan sona li toki:</td>
-      <td>Knowledge man says:</td>
-      <td>The wise man answers:</td>
+      <td>Checking if a proof is valid</td>
+      <td>Type-checking</td>
     </tr>
     <tr>
-      <td>“sina wile moku la o moku.</td>
-      <td>“you want food then eat</td>
-      <td>“Eat when you’re hungry,</td>
-    </tr>
-    <tr>
-      <td>sina wile lape la o lape.”</td>
-      <td>you want sleep then sleep.”</td>
-      <td>sleep when you’re tired.”</td>
+      <td>Mathematical framework (e.g. first-order logic)</td>
+      <td>Type system</td>
     </tr>
   </tbody>
 </table>
 
-<p>While some people really like this philosophy, not everyone in the community adheres to it. For some, it’s just a simple language. The idea that language shapes the way we think (<a href="https://en.wikipedia.org/wiki/Linguistic_relativity">Linguistic relativity</a>, also known as Sapir–Whorf hypothesis), has been shown to be much less of a big deal than a lot of people want to believe. I’m saying this because some of the more sensational source frame it as if just speaking Toki Pona will make you a taoist. And yes, Toki Pona is still perfectly capable of expressing that your friend is a huge asshole (“jan pona mi li ike mute tawa mi”).</p>
-
-<h3 id="3-poetry">3. Poetry</h3>
-
-<p>Because the aforementioned vagueness and interpretability, I find that Toki Pona is actually a great language for a certain kind of poetry. As a writer, you have excellent control. You reveal as much as you want. Observe the English sentence: “She looked.”. In two words we already gave away that the subject is female, and it happened in the past. Disclosing this is hardly optional in the English language. “looking was being done at some time” doesn’t quite roll of the tongue. In Toki Pona you just say “ona li lukin”. Deliberate vagueness leaves a lot of room for double meanings, innuendos and alternative interpretations.<sup id="fnref:chinese"><a href="#fn:chinese" class="footnote">2</a></sup></p>
-
-<p>As a reader, interpreting a Toki Pona poem is like a fun puzzle. Decrypting meaning. Often you can’t nail down what a title means, until you have read the entire text. You need to think about how the author would think, how he/she would deconstruct the world. It creates a certain interplay of expectation between writer and reader that I have rarely seen in other languages.</p>
-
-<p>For the next poem, I’ll only provide a literal translation, try to devise its meaning yourself. This isn’t the same as translating directly from Toki Pona, but it gives you a feeling for it.</p>
+<p>A theorem is true if it has a proof (yes, this is assuming soundness and completeness here, but let’s not get into the nitty-gritty of that). Using the correspondence: a type is true if you can construct a value with this type. This is called inhabitation: a type is inhabited if you can make a value with this type.</p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: center">wan taso</th>
-      <th style="text-align: center">only one</th>
+      <th>Math</th>
+      <th>Programming</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center">ijo li moke e mi</td>
-      <td style="text-align: center">Thing eats me</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">mi wile pakala</td>
-      <td style="text-align: center">I want damage</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">pimeja li tawa insa kon mi</td>
-      <td style="text-align: center">dark is toward my inside essence</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">jan ala li ken sona e pilin ike mi</td>
-      <td style="text-align: center">No person can know my negative feeling.</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">toki musi o, sina jan pona mi wan taso</td>
-      <td style="text-align: center">O entertaining language, you are my only one good person.</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">telo pimeja ni ti telo loje mi, li ale mi.</td>
-      <td style="text-align: center">This dark fluid is my red fluid, is my all.</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">tenpo ale la pimeja li lon.</td>
-      <td style="text-align: center">All time when the dark exists.</td>
+      <td>The theorem is true</td>
+      <td>The type is inhabited</td>
     </tr>
   </tbody>
 </table>
 
-<p>You can find the actual translation on <a href="https://en.wikipedia.org/wiki/Toki_Pona#Sample_texts">wikipedia</a>.</p>
+<h1 id="curry-howard-in-java">Curry-Howard in Java</h1>
 
-<h3 id="4-international-auxiliary-language">4. International Auxiliary Language</h3>
+<p>So far the CHI might seem very abstract. If every type is a theorem, what does my <code class="highlighter-rouge">List&lt;String&gt;</code> type mean as a theorem? If every program is a proof, what does my sorting function prove? Similarly, the idea that some type are not inhabited might seem strange for people coming from conventional imperative programming.</p>
 
-<p>An international auxiliary language (IAL) is a language meant for communication between people from different countries that do not share a common language. A kind of worldwide neutral second-language. There have been many attempts at creating an IAL, the most notable of which is Esperanto.</p>
+<p>It is important here to understand that most mathematics is concerned with “interesting” logics (e.g. first-order logic or dependent logic). But you could as well construct a logic where everything is true. Of course, this would be a boring logic, and not very useful. Similarly there are type systems that are very boring and not useful (in a mathematical sense), and type systems that are more interesting and expressive (remember, a type system and a logic are the same thing under the CHI). Basically every type system of an imperative language is part of the former category: they are pretty boring from a math point of view.</p>
 
-<p>Some have proposed that Toki Pona would make a good IAL. Indeed, it’s incredible how easy it is to learn. You could teach it to children at school in under a week. Another advantage of the language is its pronunciation. Toki Pona uses only a subset of the sounds used in English. The sounds are chosen to be a kind of greatest common divisor of all prevalent languages. This means, combined with the alternating consonant-vowel word structure, that Toki Pona is easily pronounceable, no matter where you’re from.</p>
+<p>To get back to the original question: observe that in Java every type is inhabited, because of <code class="highlighter-rouge">null</code>. This means that everything is provable, and hence every type is true. This means the <code class="highlighter-rouge">List&lt;String&gt;</code> type or whichever other type don’t have much meaning. They just are <code class="highlighter-rouge">True</code>.</p>
 
-<p>Personally I think Toki Pona would be a pretty horrible IAL. An IAL is not exclusively used to ask where the toilet is when you’re on holiday. The IAL is also what scientist write their papers in, so that everyone can learn about their results, or what lawyers use to write an international contract. Frankly, I feel that Toki Pona is not expressive enough to be an IAL.</p>
+<p>But let’s pretend that <code class="highlighter-rouge">null</code> does not exist in Java (<a href="https://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions">even the creator said that null was a mistake</a>)
+Now let’s try and use what we learned and construct a simple logic and some proofs in Java. We will start with trueity and falsity. The <code class="highlighter-rouge">True</code> proposition should always be true, so we can make it a type that is always constructible:</p>
 
-<p>That being said, I don’t think that there’s any other language that has what it takes to become a true IAL. What lacks is not any linguistic innovation, but political support. But that is a discussion for another time.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">True</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">True</span><span class="o">()</span> <span class="o">{}</span>
+<span class="o">}</span>
+</code></pre></div></div>
 
-<h1 id="finishing-off">Finishing off</h1>
+<p>Pretty lame, I know. But all beginnings are small. To a create <code class="highlighter-rouge">False</code>, we need a type that cannot be constructed (barring <code class="highlighter-rouge">null</code>). I don’t know any way to do this in Java: if we don’t supply a constructor Java creates a default constructor. (And creating a abstract class does not prevent the possibility that a subclass is made.) So let’s cheat<sup id="fnref:FalseInhabitation"><a href="#fn:FalseInhabitation" class="footnote">1</a></sup> and just use this:</p>
 
-<p>So should you learn Toki Pona? Probably not. But if that’s not going to stop you, a great set of lessons can be found <a href="http://tokipona.net/tp/janpije/okamasona.php">here</a>.<sup id="fnref:joke"><a href="#fn:joke" class="footnote">3</a></sup> Personally, I found it a really fun.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">False</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">False</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">assert</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
 
-<p><em>mi wile e ni: ali li pona tawa sina.</em><br />
-<em>mi tawa.</em></p>
+<p>I’ll use asserts when I’m cheating.
+Now to more interesting stuff. How could you create a logical <code class="highlighter-rouge">and</code>? <code class="highlighter-rouge">A and B</code> is only true if both A and B are true. So the type for <code class="highlighter-rouge">A and B</code> must only be constructible if both A and B are constructible. In essence this means <code class="highlighter-rouge">and</code> is a pair! Indeed, you can only create a pair if you can also make the two arguments.</p>
 
-<h1 id="references">References</h1>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">And</span><span class="o">&lt;</span><span class="no">A</span><span class="o">,</span> <span class="no">B</span><span class="o">&gt;</span> <span class="o">{</span>
 
-<ul>
-  <li><a href="https://tokipona.org/">lipu pi mama toki pona</a>. Site of the creator of Toki Pona, Sonja Lang.</li>
-  <li><a href="http://tokipona.net/tp/janpije/index.php">lipu pi jan Pije</a>. Fan site with a lot of good content.</li>
-  <li><a href="https://en.wikipedia.org/wiki/Toki_Pona">lipu Wikipesija</a>. Toki Pona Wikipedia page.</li>
-  <li><a href="http://forums.tokipona.org/">kulupu toki</a>. Toki pona forum.</li>
-  <li><a href="https://old.reddit.com/r/tokipona/">lipu Wesi</a>. Toki pona subreddit.</li>
-</ul>
+    <span class="kd">private</span> <span class="no">A</span> <span class="n">left</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="no">B</span> <span class="n">right</span><span class="o">;</span>
 
-<h1 id="footnotes">Footnotes</h1>
+    <span class="kd">public</span> <span class="nf">And</span><span class="o">(</span><span class="kd">final</span> <span class="no">A</span> <span class="n">left</span><span class="o">,</span> <span class="kd">final</span> <span class="no">B</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">assert</span> <span class="n">left</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">right</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="n">left</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="n">right</span><span class="o">;</span>
+    <span class="o">}</span>
 
-<p>sina lon ala lon ilo Discord? 
-– Ben je op de discord?
-kulupu suli pi toki pona li lon ilo ni. 
-– Grote groep van toki pona is hierop.
-nimi ona li “ma pona pi toki pona”. 
-– its name is “good land of toki pona”
-lon poka pi lipu ni la sina ken alasa e ona.
-– next of this site, jij kan gather it.</p>
+    <span class="kd">public</span> <span class="no">A</span> <span class="nf">projLeft</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">left</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="no">B</span> <span class="nf">projRight</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">right</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>This is the first non-trivial piece of code, so make sure you understand it. There is a single way of construction and two ways to destruct. This is just like in an actual logic, where there would be one derivation rule to create an <code class="highlighter-rouge">and</code> and two ways to use it.</p>
+
+<p>Next up, the implication. <code class="highlighter-rouge">A =&gt; B</code> is true if, when A is true, B is also true. So B is constructible if A is constructible. This is in essence a function. Indeed, a function can create B, given A. This means that our implication will just be wrapper around <code class="highlighter-rouge">Function</code>.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">Imply</span><span class="o">&lt;</span><span class="no">A</span><span class="o">,</span> <span class="no">B</span><span class="o">&gt;</span> <span class="o">{</span>
+    
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">Function</span><span class="o">&lt;</span><span class="no">A</span><span class="o">,</span> <span class="no">B</span><span class="o">&gt;</span> <span class="n">function</span><span class="o">;</span>
+    
+    <span class="kd">public</span> <span class="nf">Imply</span><span class="o">(</span><span class="kd">final</span> <span class="nc">Function</span><span class="o">&lt;</span><span class="no">A</span><span class="o">,</span><span class="no">B</span><span class="o">&gt;</span> <span class="n">function</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">assert</span> <span class="n">function</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">function</span> <span class="o">=</span> <span class="n">function</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="no">B</span> <span class="nf">apply</span><span class="o">(</span><span class="no">A</span> <span class="n">t</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">function</span><span class="o">.</span><span class="na">apply</span><span class="o">(</span><span class="n">t</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h1 id="a-proof">A Proof</h1>
+
+<p>With this small toolbox, we are ready to make the first proof. Consider the theorem, <code class="highlighter-rouge">If A and B are true, B is true</code>. Let’s state the theorem in Java:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Theorem 1: A &amp; B =&gt; B</span>
+<span class="nc">Imply</span><span class="o">&lt;</span><span class="nc">And</span><span class="o">&lt;</span><span class="no">A</span><span class="o">,</span> <span class="no">B</span><span class="o">&gt;,</span> <span class="no">B</span><span class="o">&gt;</span> <span class="n">thm1</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p>In the comment, I stated the exact same thing, but using symbols and infix instead of prefix.</p>
+
+<p>To prove this type, we need to create a program for this type:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">thm1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Imply</span><span class="o">&lt;&gt;(</span><span class="nl">And:</span><span class="o">:</span><span class="n">projRight</span><span class="o">);</span>
+</code></pre></div></div>
+<p>If the theorem is very basic, the proof is even more so. We simply use one of the two deconstructors, which gives us the proof after wrapping it in the <code class="highlighter-rouge">Imply</code>. Next up I’m going to add a little more logic so we can do more interesting proofs.</p>
+
+<h1 id="more-logic">More logic</h1>
+
+<p>We have two more basic logic constructs left: the <code class="highlighter-rouge">or</code> and the <code class="highlighter-rouge">not</code>. Implementing the former, we make <code class="highlighter-rouge">Or&lt;A, B&gt;</code> constructible by using either a argument of <code class="highlighter-rouge">A</code> or an argument of <code class="highlighter-rouge">B</code>. For <code class="highlighter-rouge">And</code> we needed something that needs both arguments, for <code class="highlighter-rouge">Or</code> one of them suffices. We can implement this using polymorphism:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Or</span><span class="o">&lt;</span><span class="no">A</span><span class="o">,</span> <span class="no">B</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="o">&lt;</span><span class="no">C</span><span class="o">&gt;</span> <span class="no">C</span> <span class="nf">caseOf</span><span class="o">(</span><span class="nc">Function</span><span class="o">&lt;</span><span class="no">A</span><span class="o">,</span> <span class="no">C</span><span class="o">&gt;</span> <span class="n">leftCase</span><span class="o">,</span> <span class="nc">Function</span><span class="o">&lt;</span><span class="no">B</span><span class="o">,</span> <span class="no">C</span><span class="o">&gt;</span> <span class="n">rightCase</span><span class="o">);</span>
+<span class="o">}</span>
+
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrLeft</span><span class="o">&lt;</span><span class="no">A</span><span class="o">,</span><span class="no">B</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="nc">Or</span><span class="o">&lt;</span><span class="no">A</span><span class="o">,</span> <span class="no">B</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="no">A</span> <span class="n">left</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">OrLeft</span><span class="o">(</span><span class="no">A</span> <span class="n">left</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="n">left</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="o">&lt;</span><span class="no">C</span><span class="o">&gt;</span> <span class="no">C</span> <span class="nf">caseOf</span><span class="o">(</span><span class="nc">Function</span><span class="o">&lt;</span><span class="no">A</span><span class="o">,</span> <span class="no">C</span><span class="o">&gt;</span> <span class="n">leftCase</span><span class="o">,</span> <span class="nc">Function</span><span class="o">&lt;</span><span class="no">B</span><span class="o">,</span> <span class="no">C</span><span class="o">&gt;</span> <span class="n">rightCase</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">leftCase</span><span class="o">.</span><span class="na">apply</span><span class="o">(</span><span class="n">left</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrRight</span><span class="o">&lt;</span><span class="no">A</span><span class="o">,</span><span class="no">B</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="nc">Or</span><span class="o">&lt;</span><span class="no">A</span><span class="o">,</span> <span class="no">B</span><span class="o">&gt;{</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="no">B</span> <span class="n">right</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">OrRight</span><span class="o">(</span><span class="no">B</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="n">right</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="o">&lt;</span><span class="no">C</span><span class="o">&gt;</span> <span class="no">C</span> <span class="nf">caseOf</span><span class="o">(</span><span class="nc">Function</span><span class="o">&lt;</span><span class="no">A</span><span class="o">,</span> <span class="no">C</span><span class="o">&gt;</span> <span class="n">leftCase</span><span class="o">,</span> <span class="nc">Function</span><span class="o">&lt;</span><span class="no">B</span><span class="o">,</span> <span class="no">C</span><span class="o">&gt;</span> <span class="n">rightCase</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">rightCase</span><span class="o">.</span><span class="na">apply</span><span class="o">(</span><span class="n">right</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Note the symmetry: <code class="highlighter-rouge">Or</code> has 2 constructors and 1 deconstructor, <code class="highlighter-rouge">And</code> has 1 constructor and 2 deconstructors.</p>
+
+<p>Lastly, there is <code class="highlighter-rouge">Not</code> to discuss. This might be the least intuitive of the bunch (pun not intended), which is why I kept it for last. In effect, <code class="highlighter-rouge">not A</code> must be provable only if A is not provable. So our implementation <code class="highlighter-rouge">Not&lt;A&gt;</code> must only be constructible if the type <code class="highlighter-rouge">A</code> isn’t constructible. We can do this by interpreting <code class="highlighter-rouge">not A</code> as <code class="highlighter-rouge">A =&gt; False</code>. Indeed, we can never construct False on it’s own, so if <code class="highlighter-rouge">A =&gt; False</code> exists (it’s true), A must be false. Similarly if <code class="highlighter-rouge">A =&gt; False</code> does not exist (it’s false), this must be because A is true.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">Not</span><span class="o">&lt;</span><span class="no">A</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">Function</span><span class="o">&lt;</span><span class="no">A</span><span class="o">,</span> <span class="nc">False</span><span class="o">&gt;</span> <span class="n">proof</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Not</span><span class="o">(</span><span class="kd">final</span> <span class="nc">Function</span><span class="o">&lt;</span><span class="no">A</span><span class="o">,</span> <span class="nc">False</span><span class="o">&gt;</span> <span class="n">proof</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">proof</span> <span class="o">=</span> <span class="n">proof</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">False</span> <span class="nf">apply</span><span class="o">(</span><span class="kd">final</span> <span class="no">A</span> <span class="n">a</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">proof</span><span class="o">.</span><span class="na">apply</span><span class="o">(</span><span class="n">a</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Now we have all the basic elements of your typical logic. Time to make some more proofs!</p>
+
+<h1 id="more-proofs">More proofs</h1>
+
+<p>Just like any maths, you need to work on it yourself to really understand it. It’s a good exercise to try and prove these types before looking at my program. Or even better: state your own theorems, convert them to types and prove them.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Theorem 2: A | A =&gt; A</span>
+<span class="nc">Function</span><span class="o">&lt;</span><span class="nc">Or</span><span class="o">&lt;</span><span class="no">A</span><span class="o">,</span> <span class="no">A</span><span class="o">&gt;,</span> <span class="no">A</span><span class="o">&gt;</span> <span class="n">thm2</span><span class="o">;</span>
+<span class="n">thm2</span> <span class="o">=</span> <span class="n">given</span> <span class="o">-&gt;</span> <span class="n">given</span><span class="o">.</span><span class="na">caseOf</span><span class="o">(</span><span class="n">id_thm</span><span class="o">,</span> <span class="n">id_thm</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>So for only one-liners. To prove a law of De Morgan we’ll need a bit more:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Theorem 3: !x | !y =&gt; !(x &amp; y)</span>
+<span class="nc">Imply</span><span class="o">&lt;</span><span class="nc">Or</span><span class="o">&lt;</span><span class="nc">Not</span><span class="o">&lt;</span><span class="no">X</span><span class="o">&gt;,</span> <span class="nc">Not</span><span class="o">&lt;</span><span class="no">Y</span><span class="o">&gt;&gt;</span> <span class="o">,</span> <span class="nc">Not</span><span class="o">&lt;</span><span class="nc">And</span><span class="o">&lt;</span><span class="no">X</span><span class="o">,</span> <span class="no">Y</span><span class="o">&gt;&gt;&gt;</span> <span class="n">thm7</span><span class="o">;</span>
+<span class="n">thm3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Imply</span><span class="o">&lt;&gt;((</span><span class="nc">Or</span><span class="o">&lt;</span><span class="nc">Not</span><span class="o">&lt;</span><span class="no">X</span><span class="o">&gt;,</span> <span class="nc">Not</span><span class="o">&lt;</span><span class="no">Y</span><span class="o">&gt;&gt;</span> <span class="n">x</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="nc">Not</span><span class="o">&lt;&gt;(</span>
+        <span class="o">((</span><span class="nc">And</span><span class="o">&lt;</span><span class="no">X</span><span class="o">,</span> <span class="no">Y</span><span class="o">&gt;</span> <span class="n">y</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">.</span><span class="na">caseOf</span><span class="o">(</span>
+                <span class="o">(</span><span class="nc">Not</span><span class="o">&lt;</span><span class="no">X</span><span class="o">&gt;</span> <span class="n">na</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">na</span><span class="o">.</span><span class="na">apply</span><span class="o">(</span><span class="n">y</span><span class="o">.</span><span class="na">projLeft</span><span class="o">()),</span>
+                <span class="o">(</span><span class="nc">Not</span><span class="o">&lt;</span><span class="no">Y</span><span class="o">&gt;</span> <span class="n">nb</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">nb</span><span class="o">.</span><span class="na">apply</span><span class="o">(</span><span class="n">y</span><span class="o">.</span><span class="na">projRight</span><span class="o">())</span>
+        <span class="o">))</span>
+<span class="o">));</span>
+</code></pre></div></div>
+
+<p>As Java is not exactly great for type theory, you’ll note that these proofs get hard to follow very quick. Specialized languages for theorem-proving have ways of dealing with this (interactive provers, holes, tactics), but this problem can remain even then.</p>
+
+<h1 id="intuitive-flaws">Intuitive flaws</h1>
+
+<p>Try to prove the following theorem: <code class="highlighter-rouge">!(!A) =&gt; A</code>. It seems simple enough, but you’ll quickly realize that it can’t be done. How come?</p>
+
+<p>Even worse, there many other statements that can’t be proven. Famously, the law of exclude the middle is not provable in this logic:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Theorem 2: A | !A</span>
+<span class="nc">Or</span><span class="o">&lt;</span><span class="no">A</span><span class="o">,</span> <span class="nc">Not</span><span class="o">&lt;</span><span class="no">A</span><span class="o">&gt;&gt;</span> <span class="n">thm4</span><span class="o">;</span>
+<span class="n">thm4</span> <span class="o">=</span> <span class="o">?</span> <span class="c1">// not provable</span>
+</code></pre></div></div>
+
+<p>This is because the logic we created is not entirely the same as “regular” first-order logic.</p>
+
+<p>Here we are bearing the consequences of the demand to make everything constructible. For example, when you want to make a proof that there is some number X that has a property Y, you need to actually give X. In regular maths, this is not always the case, you sometimes can give an argument that X definitely must exist, without actually showing what it is. Hence constructible logic is weaker than regular logic. Everything that can be proven in constructible logic is provable in regular logic, but not the other way round.</p>
+
+<p>To get back to the law of exclude the middle: you could only prove it by giving a program that always decides whether A is true or not. Sadly this is not possible, for example, take A as “this Turing machine terminates”. You know for certain that a Turing machine will either terminate or not, but you cannot generally prove which of the two it will be, and hence you can’t give a constructive proof.</p>
+
+<h1 id="references">References:</h1>
+<p>Todo</p>
+
+<h1 id="footnotes">Footnotes:</h1>
+
 <div class="footnotes">
   <ol>
-    <li id="fn:irony">
-      <p>Note the irony: oligoisolating is a synthetic word, built from unusual components. But it means analytic concepts, build from common components. To no surprise, there is an actual for this: heterological. <a href="#fnref:irony" class="reversefootnote">&#8617;</a></p>
-    </li>
-    <li id="fn:chinese">
-      <p>I’ve heard Chinese (both Mandarin and Cantonese) is also good at this due to its highly analytic nature. Sadly I don’t speak any Chinese language, so I can’t comment on it myself. <a href="#fnref:chinese" class="reversefootnote">&#8617;</a></p>
-    </li>
-    <li id="fn:joke">
-      <p>For the American readers, I can also recommend the following <a href="http://tokipona.net/tp/janpije/zompist.php">useful phrases</a> to impress the Lojban nerds on your travels. <a href="#fnref:joke" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:FalseInhabitation">
+      <p>This would not be acceptable in a real setting: <code class="highlighter-rouge">new False()</code> would still type-check. Hence you could prove any false theorem (i.e. the logic isn’t sound). Again, this is again a limitation of Java, but we will keep a blind eye to it just like for <code class="highlighter-rouge">null</code>. There are other similar problems in the content that follows, e.g. for the <code class="highlighter-rouge">Or</code> you would need to be able to guarantee that you cannot create any other implementation besides <code class="highlighter-rouge">OrLeft</code> and <code class="highlighter-rouge">OrRight</code>. <a href="#fnref:FalseInhabitation" class="reversefootnote">&#8617;</a></p>
     </li>
   </ol>
 </div>
