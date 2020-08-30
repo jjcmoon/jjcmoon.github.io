@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://maene.dev/feed.xml" rel="self" type="application/atom+xml" /><link href="https://maene.dev/" rel="alternate" type="text/html" /><updated>2020-07-24T00:13:12+02:00</updated><id>https://maene.dev/feed.xml</id><title type="html">Jaron J.C. Maene</title><subtitle>A blog about technology and stuff related</subtitle><entry><title type="html">Curry-howard in Java</title><link href="https://maene.dev/curry-howard/" rel="alternate" type="text/html" title="Curry-howard in Java" /><published>2020-07-23T11:57:00+02:00</published><updated>2020-07-23T11:57:00+02:00</updated><id>https://maene.dev/curry-howard</id><content type="html" xml:base="https://maene.dev/curry-howard/">&lt;p&gt;The Curry-Howard Isomorphism (CHI) is, in my humble opinion, one of the more fascinating discoveries in computer science. However it is little known, as introductions are often too theoretical and founded on terse pre-assumed mathematical knowledge. Practical usage often relies on advanced languages based with dependent types (like Idris or Agda), which in their turn assume a good understanding of functional languages like Haskell. That can pose quite a barrier for the casual bystander who just wants to dip their toes in the water without getting sucked in into the rapids.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://maene.dev/feed.xml" rel="self" type="application/atom+xml" /><link href="https://maene.dev/" rel="alternate" type="text/html" /><updated>2020-08-30T22:46:03+02:00</updated><id>https://maene.dev/feed.xml</id><title type="html">Jaron J.C. Maene</title><subtitle>A blog about technology and stuff related</subtitle><entry><title type="html">Curry-howard in Java</title><link href="https://maene.dev/curry-howard/" rel="alternate" type="text/html" title="Curry-howard in Java" /><published>2020-07-23T11:57:00+02:00</published><updated>2020-07-23T11:57:00+02:00</updated><id>https://maene.dev/curry-howard</id><content type="html" xml:base="https://maene.dev/curry-howard/">&lt;p&gt;The Curry-Howard Isomorphism (CHI) is, in my humble opinion, one of the more fascinating discoveries in computer science. However it is little known, as introductions are often too theoretical and founded on terse pre-assumed mathematical knowledge. Practical usage often relies on advanced languages based with dependent types (like Idris or Agda), which in their turn assume a good understanding of functional languages like Haskell. That can pose quite a barrier for the casual bystander who just wants to dip their toes in the water without getting sucked in into the rapids.&lt;/p&gt;
 
 &lt;p&gt;So for these people, I will introduce the CHI with examples in Java, giving a small primer how it can be used. Of course, the type system of Java is very limiting compared to the functional languages listed above (there’s a reason they were made!) but I think it will suffice to demonstrate some of the basic ideas.&lt;/p&gt;
 
@@ -251,7 +251,290 @@ Now to more interesting stuff. How could you create a logical &lt;code class=&qu
       &lt;p&gt;This would not be acceptable in a real setting: &lt;code class=&quot;highlighter-rouge&quot;&gt;new False()&lt;/code&gt; would still type-check. Hence you could prove any false theorem (i.e. the logic isn’t sound). Again, this is again a limitation of Java, but we will keep a blind eye to it just like for &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt;. There are other similar problems in the content that follows, e.g. for the &lt;code class=&quot;highlighter-rouge&quot;&gt;Or&lt;/code&gt; you would need to be able to guarantee that you cannot create any other implementation besides &lt;code class=&quot;highlighter-rouge&quot;&gt;OrLeft&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;OrRight&lt;/code&gt;. &lt;a href=&quot;#fnref:FalseInhabitation&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
-&lt;/div&gt;</content><author><name>jaron</name></author><category term="blog" /><category term="type theory" /><category term="Curry-Howard" /><summary type="html">The Curry-Howard Isomorphism (CHI) is, in my humble opinion, one of the more fascinating discoveries in computer science. However it is little known, as introductions are often too theoretical and founded on terse pre-assumed mathematical knowledge. Practical usage often relies on advanced languages based with dependent types (like Idris or Agda), which in their turn assume a good understanding of functional languages like Haskell. That can pose quite a barrier for the casual bystander who just wants to dip their toes in the water without getting sucked in into the rapids.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://maene.dev/assets/images/markdown.jpg" /><media:content medium="image" url="https://maene.dev/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Toki Pona</title><link href="https://maene.dev/toki-pona/" rel="alternate" type="text/html" title="Toki Pona" /><published>2020-03-31T11:57:00+02:00</published><updated>2020-03-31T11:57:00+02:00</updated><id>https://maene.dev/toki-pona</id><content type="html" xml:base="https://maene.dev/toki-pona/">&lt;p&gt;&lt;em&gt;toki! nimi mi li Mun. mi wile e ni: mi pana e sona pi toki pana tawa sina.&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;</content><author><name>jaron</name></author><category term="blog" /><category term="type theory" /><category term="Curry-Howard" /><summary type="html">The Curry-Howard Isomorphism (CHI) is, in my humble opinion, one of the more fascinating discoveries in computer science. However it is little known, as introductions are often too theoretical and founded on terse pre-assumed mathematical knowledge. Practical usage often relies on advanced languages based with dependent types (like Idris or Agda), which in their turn assume a good understanding of functional languages like Haskell. That can pose quite a barrier for the casual bystander who just wants to dip their toes in the water without getting sucked in into the rapids.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://maene.dev/assets/images/markdown.jpg" /><media:content medium="image" url="https://maene.dev/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Empirically Untangling the Meaning of Grok</title><link href="https://maene.dev/grokking/" rel="alternate" type="text/html" title="Empirically Untangling the Meaning of Grok" /><published>2020-07-23T11:57:00+02:00</published><updated>2020-07-23T11:57:00+02:00</updated><id>https://maene.dev/grokking</id><content type="html" xml:base="https://maene.dev/grokking/">&lt;p&gt;Heinlein’s 1961 novel “Stranger in a Strange Land” contains one of the most influential (and controversial) sci-fi stories of the previous century. The protagonist is Valentine Micheal Smith, a man that was raised by aliens on Mars. The story starts when he returns to Earth, and is confronted with human culture. Especially the second half of the book has received a lot of critique (Spoiler alert: Micheal turns out to be some kind of Messiah. Also he founds a sex cult that gives you magical powers), but the book nonetheless contains a lot interesting and progressive concepts that were ahead of its time. The most influential is probably “grok”.&lt;/p&gt;
+
+&lt;p&gt;Grok is a frequently used word by Micheal (and Martians in general). Heinlein does not deem it necessary to introduce it, when Micheal starts using it. But eventually we learn that the literal meaning of the Martian word is “to drink”. However, the term is used in a much broader way. The drinking is a metaphor for a kind of absorption of knowledge. Hence it might be better to translate it as “to understand”, but the book emphasizes that grokking is a deeper concept than understanding. It is a central concept in Martian culture. Some passages from the book:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Grok means “to understand,” of course, but Dr. Mahmoud, who might be termed the leading Terran expert on Martians, explains that it also means, “to drink” and “a hundred other English words, words which we think of as antithetical concepts. ‘Grok’ means all of these. It means ‘fear,’ it means ‘love,’ it means ‘hate’—proper hate, for by the Martian ‘map’ you cannot hate anything unless you grok it, understand it so thoroughly that you merge with it and it merges with you—then you can hate it. By hating yourself. But this implies that you love it, too, and cherish it and would not have it otherwise.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;‘Grok’ means to understand so thoroughly that the observer becomes a part of the observed—to merge, blend, intermarry, lose identity in group experience. It means almost everything that we mean by religion, philosophy, and science and it means as little to us as color does to a blind man.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;However much Heinlein wants to cover the definition of the word in a shroud of mystery, the meaning of word is a function of its usage, not it’s definition. Hence, I would like to try to empirically reveal its functional meaning, by using BERT.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://jalammar.github.io/illustrated-bert/&quot;&gt;BERT&lt;/a&gt; is a masked language model, meaning that it predicts the likelihood of a word appearing in a give context.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/grokking/BERT.png&quot; alt=&quot;png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This allows to approximate what English words are used most similarly to “grok”. For example, if we mask grok in the following context:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“But, Jubal, don’t make a suggestion like that to Mike.  He wouldn’t [MASK] that you were joking - and you might have a corpse on your hands.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;BERT’s top 2 predictions are: “believe” and “understand”.&lt;/p&gt;
+
+&lt;h1 id=&quot;experiments&quot;&gt;Experiments&lt;/h1&gt;
+
+&lt;p&gt;We can get a more complete picture by averaging the results for all the 305 occurrences of grok in “Stranger in a strange land” (the original, uncut version). These predictions were generated using the pre-trained huggingface model called &lt;code class=&quot;highlighter-rouge&quot;&gt;roberta-large&lt;/code&gt; (a variant of BERT).&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;word&lt;/th&gt;
+      &lt;th&gt;probability&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;know&lt;/td&gt;
+      &lt;td&gt;11.67%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;understand&lt;/td&gt;
+      &lt;td&gt;10.96%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;think&lt;/td&gt;
+      &lt;td&gt;7.28%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;see&lt;/td&gt;
+      &lt;td&gt;3.73%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;do&lt;/td&gt;
+      &lt;td&gt;2.78%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;get&lt;/td&gt;
+      &lt;td&gt;1.48%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;believe&lt;/td&gt;
+      &lt;td&gt;1.39%&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;I only included the words that have probabilities above 1.2%. We can repeat the same exercise with “grokked” (102 occurrences):&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;word&lt;/th&gt;
+      &lt;th&gt;probability&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;knew&lt;/td&gt;
+      &lt;td&gt;7.07%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;understood&lt;/td&gt;
+      &lt;td&gt;6.90%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;saw&lt;/td&gt;
+      &lt;td&gt;4.29%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;realized&lt;/td&gt;
+      &lt;td&gt;3.01%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;thought&lt;/td&gt;
+      &lt;td&gt;2.72%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;felt&lt;/td&gt;
+      &lt;td&gt;2.24%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;learned&lt;/td&gt;
+      &lt;td&gt;2.03%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;seen&lt;/td&gt;
+      &lt;td&gt;1.99%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;known&lt;/td&gt;
+      &lt;td&gt;1.59%&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Reassuringly, these give very similar results. Lastly, let’s check the results for “grokking” (44 occurrences):&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;word&lt;/th&gt;
+      &lt;th&gt;probability&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;it&lt;/td&gt;
+      &lt;td&gt;3.91%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;understanding&lt;/td&gt;
+      &lt;td&gt;3.46%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;learning&lt;/td&gt;
+      &lt;td&gt;2.98%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;living&lt;/td&gt;
+      &lt;td&gt;2.35%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;shape&lt;/td&gt;
+      &lt;td&gt;1.89%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;shape&lt;/td&gt;
+      &lt;td&gt;1.47%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;moment&lt;/td&gt;
+      &lt;td&gt;1.33%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;natural&lt;/td&gt;
+      &lt;td&gt;1.31%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;doing&lt;/td&gt;
+      &lt;td&gt;1.29%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;meaning&lt;/td&gt;
+      &lt;td&gt;1.22%&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h1&gt;
+
+&lt;p&gt;The results of “grok” and “grokked” seem to agree with the &lt;a href=&quot;https://www.merriam-webster.com/dictionary/grok&quot;&gt;definition in the Merriam-Webster dictionary&lt;/a&gt;: “to understand profoundly and intuitively”. Especially so for the past tense. Only in the decomposition of “grokking” do we get any hint of a mystical component. The active form of “grok” is related to e.g. “living”, “shape” and “moment”. Note furthermore that the absolute probabilities for the best predictions are much lower. This is what you would expect if there is no single English word with a consistent match.&lt;/p&gt;
+
+&lt;h1 id=&quot;appendix&quot;&gt;Appendix&lt;/h1&gt;
+
+&lt;p&gt;As a kind of control, I checked what the model predicts for regular English words. If there are enough occurrences, the model predicts the word itself by quite a large margin, followed by some related words. For example, using “have” (1062 occurrences).&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;word&lt;/th&gt;
+      &lt;th&gt;probability&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;have&lt;/td&gt;
+      &lt;td&gt;77.36%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;‘ve&lt;/td&gt;
+      &lt;td&gt;4.03%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;need&lt;/td&gt;
+      &lt;td&gt;1.52%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;get&lt;/td&gt;
+      &lt;td&gt;1.32%&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Or for “understand” (85 occurrences)&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;word&lt;/th&gt;
+      &lt;th&gt;probability&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;understand&lt;/td&gt;
+      &lt;td&gt;36.75%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;know&lt;/td&gt;
+      &lt;td&gt;11.70%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;see&lt;/td&gt;
+      &lt;td&gt;4.52%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;get&lt;/td&gt;
+      &lt;td&gt;3.81%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;hear&lt;/td&gt;
+      &lt;td&gt;3.05%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;believe&lt;/td&gt;
+      &lt;td&gt;2.40%&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Notice that, especially when getting to the bottom of the table, there start to appear entries which have not much to do with “understand”, like “hear”. It’s important to remember the semantics of this table. It’s “can be used in the same context”, not “means the same thing”. Of course, as the contexts increase in size, and if the models are good enough, these should largely converge. But alas, current models and context are not perfect. As an example, observe the output for “first” (245 occurrences).&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;word&lt;/th&gt;
+      &lt;th&gt;probability&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;first&lt;/td&gt;
+      &lt;td&gt;53.93%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;last&lt;/td&gt;
+      &lt;td&gt;2.54%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;next&lt;/td&gt;
+      &lt;td&gt;1.52%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;second&lt;/td&gt;
+      &lt;td&gt;1.18%&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Although it rightly guesses “first” with a big margin, the next entries are not synonyms at all. Let’s take an example from in the book:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Meet me at the desk; I’ll be paying the bill.” She left very suddenly..
+. They went to the town’s station flat and caught the [MASK] Greyhound going anywhere.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Observe how in this case, both “first”, as “last” are completely sensible options. There is not enough context to decide. This explains why for “grokking”, “it” is the first option. It can be used a generic placeholder for a word if there is no better alternative. Similarly, “get” occurs quite often.&lt;/p&gt;
+
+&lt;h1 id=&quot;replication&quot;&gt;Replication&lt;/h1&gt;
+
+&lt;p&gt;All source code can be found in &lt;a href=&quot;https://colab.research.google.com/drive/1ipZGpoz_H1__SsqgO_bbEqUCExKOOB5f?usp=sharing&quot;&gt;this colab notebook&lt;/a&gt;. To replicate you only need to upload “Stranger in a strange book” in the epub format and rename it &lt;code class=&quot;highlighter-rouge&quot;&gt;book.epub&lt;/code&gt;. After this you can just run all cells.&lt;/p&gt;</content><author><name>jaron</name></author><category term="blog" /><category term="linguistics" /><category term="language models" /><summary type="html">Heinlein’s 1961 novel “Stranger in a Strange Land” contains one of the most influential (and controversial) sci-fi stories of the previous century. The protagonist is Valentine Micheal Smith, a man that was raised by aliens on Mars. The story starts when he returns to Earth, and is confronted with human culture. Especially the second half of the book has received a lot of critique (Spoiler alert: Micheal turns out to be some kind of Messiah. Also he founds a sex cult that gives you magical powers), but the book nonetheless contains a lot interesting and progressive concepts that were ahead of its time. The most influential is probably “grok”.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://maene.dev/assets/images/markdown.jpg" /><media:content medium="image" url="https://maene.dev/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Toki Pona</title><link href="https://maene.dev/toki-pona/" rel="alternate" type="text/html" title="Toki Pona" /><published>2020-03-31T11:57:00+02:00</published><updated>2020-03-31T11:57:00+02:00</updated><id>https://maene.dev/toki-pona</id><content type="html" xml:base="https://maene.dev/toki-pona/">&lt;p&gt;&lt;em&gt;toki! nimi mi li Mun. mi wile e ni: mi pana e sona pi toki pana tawa sina.&lt;/em&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;what&quot;&gt;What?&lt;/h1&gt;
 
