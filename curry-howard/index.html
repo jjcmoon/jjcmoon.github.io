@@ -28,7 +28,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-07-23T11:57:00+02:00" />
 <script type="application/ld+json">
-{"image":"https://maene.dev/assets/images/markdown.jpg","@type":"BlogPosting","url":"https://maene.dev/curry-howard/","dateModified":"2020-07-23T11:57:00+02:00","datePublished":"2020-07-23T11:57:00+02:00","headline":"Curry-howard in Java","mainEntityOfPage":{"@type":"WebPage","@id":"https://maene.dev/curry-howard/"},"author":{"@type":"Person","name":"jaron"},"description":"Practical primer to the Curry-Howard correspondence","@context":"https://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://maene.dev/curry-howard/"},"@type":"BlogPosting","image":"https://maene.dev/assets/images/markdown.jpg","url":"https://maene.dev/curry-howard/","headline":"Curry-howard in Java","dateModified":"2020-07-23T11:57:00+02:00","datePublished":"2020-07-23T11:57:00+02:00","author":{"@type":"Person","name":"jaron"},"description":"Practical primer to the Curry-Howard correspondence","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     
@@ -1460,23 +1460,23 @@ pre {
     </div>
 
 
-<p>The Curry-Howard Isomorphism (CHI) is, in my humble opinion, one of the more fascinating discoveries in computer science. However it is little known, as introductions are often too theoretical and founded on terse pre-assumed mathematical knowledge. Practical usage often relies on advanced languages based with dependent types (like Idris or Agda), which in their turn assume a good understanding of functional languages like Haskell. That can pose quite a barrier for the casual bystander who just wants to dip their toes in the water without getting sucked in into the rapids.</p>
+<p>The Curry-Howard Isomorphism (CHI) is, in my humble opinion, one of the more fascinating discoveries in computer science. However, it is little known, as introductions are often quite theoretical and founded on terse pre-assumed mathematical knowledge. Practical usage relies on advanced languages with dependent types (like <a href="https://www.idris-lang.org/">Idris</a> or <a href="https://wiki.portal.chalmers.se/agda/pmwiki.php">Agda</a>), which in their turn assume some understanding of functional languages like Haskell. All this can pose quite an intimidating barrier for the casual bystander who just wants to dip their toes in the water without getting sucked in into the rapids.</p>
 
-<p>So for these people, I will introduce the CHI with examples in Java, giving a small primer how it can be used. Of course, the type system of Java is very limiting compared to the functional languages listed above (there’s a reason they were made!) but I think it will suffice to demonstrate some of the basic ideas.</p>
+<p>So for these people, I will introduce the CHI with examples in Java, giving a small primer on how it can be used. Of course, the type system of Java is very limiting compared to the functional languages listed above (there’s a reason they were made!) but I think it will suffice to demonstrate some of the basic ideas.</p>
 
 <h1 id="wait-but-why">Wait but why?</h1>
 
-<p>If you’re the kind of person that likes to know why you should care about something before getting invested: this section is for you. The people who like interesting stuff for its own right and don’t care about applications can freely skip this.</p>
+<p><em>The people who like interesting math for its own right and don’t care about applications can freely skip this.</em></p>
 
-<p>So why is this connection between math and code important? Well, when a connection is found between two (seemingly) different fields, this allows you to us use tools/tricks from one field on the other one, creating new opportunities. So as a programmer, this allows you to use the power of maths for your programs. A case where this is very useful is verification. Current forms of testing like unit testing allows the creator to eliminate a fair share of bugs, but it does not give complete certainty of the correctness of the code. Using the CHI however, it is possible to create mathematical proofs of correctness, giving absolute certainty. (Although of course this is not easy.)</p>
+<p>So why is this connection between math and code important? Well, when a connection is found between two (seemingly) different fields, this allows you to use tools/tricks from one field on the other one, creating new opportunities. So as a programmer, you can use the power of maths for your programs. A case where this is very useful is verification. Current forms of testing like unit testing allow the creator to eliminate a fair share of bugs, but it does not give complete certainty of the correctness of the code. By using the CHI, it’s possible to create mathematical proofs of correctness, giving absolute certainty. (Although this can be difficult or cumbersome to do, but this is something researchers are trying to improve.)</p>
 
-<p>On the other side, mathematicians can leverage computers in their work via the CHI. Using the correspondence, they can encode their proofs in programs. These programs will only compile if the proof is correct. Thus eliminating the risk that there is a subtle error in the proof that nobody noticed.</p>
+<p>On the other side, mathematicians can leverage computers in their work via the CHI. Using the correspondence, they can encode their proofs in programs. These programs will only compile if the proof is correct. Thus eliminating the risk that there is a subtle error in the proof that nobody noticed. (This is a very real problem for complicated 100-page proofs.)</p>
 
-<p>There is certainly more to be discussed, like what the difficulties are with this verification, or what other applications are, but this would lead us to far.</p>
+<p>There is certainly more to be discussed, like what the difficulties are with this verification, or what other applications are, but this would lead us too far.</p>
 
 <h1 id="the-correspondence">The Correspondence</h1>
 
-<p>Let’s dive in. The CHI was discovered by observing that there is a very deep connecting (an isomorphism, as mathematicians say) between mathematics and programming. It says that, when a mathematician states some theorem in a mathematical framework, and proves this theorem, and a programmer states some type in a programming language, and creates a program that constructs this type, they are fundamentally doing the same thing.</p>
+<p>Let’s dive in. The CHI was discovered by observing that there is a very deep similarity (an isomorphism, as mathematicians say) between mathematics and programming. It says that, proof systems and type systems are actually the same thing. So when a mathematician states some theorem in a mathematical framework, and a programmer states some type in a programming language, they are fundamentally doing the same thing. Writing a proof for a theorem, corresponds to writing an expression for a type.</p>
 
 <table>
   <thead>
@@ -1492,7 +1492,7 @@ pre {
     </tr>
     <tr>
       <td>Proof (for a theorem)</td>
-      <td>Code (to generate a type)</td>
+      <td>Expression (with a type)</td>
     </tr>
     <tr>
       <td>Checking if a proof is valid</td>
@@ -1505,7 +1505,7 @@ pre {
   </tbody>
 </table>
 
-<p>A theorem is true if it has a proof (yes, this is assuming soundness and completeness here, but let’s not get into the nitty-gritty of that). Using the correspondence: a type is true if you can construct a value with this type. This is called inhabitation: a type is inhabited if you can make a value with this type.</p>
+<p>A theorem is true if it has a proof (yes, I will assume soundness and completeness here, but let’s not get into the nitty-gritty of that). Using the correspondence: a type is true if you can construct a value with this type. This is called inhabitation: a type is inhabited if you can make a value with this type.</p>
 
 <table>
   <thead>
@@ -1524,21 +1524,21 @@ pre {
 
 <h1 id="curry-howard-in-java">Curry-Howard in Java</h1>
 
-<p>So far the CHI might seem very abstract. If every type is a theorem, what does my <code class="highlighter-rouge">List&lt;String&gt;</code> type mean as a theorem? If every program is a proof, what does my sorting function prove? Similarly, the idea that some type are not inhabited might seem strange for people coming from conventional imperative programming.</p>
+<p>So far the CHI might seem very abstract. If every type is a theorem, what does my <code class="highlighter-rouge">List&lt;String&gt;</code> type mean as a theorem? If every program is a proof, what does my sorting function prove? Similarly, the idea that some types are not inhabited might seem strange for people coming from conventional imperative programming.</p>
 
-<p>It is important here to understand that most mathematics is concerned with “interesting” logics (e.g. first-order logic or dependent logic). But you could as well construct a logic where everything is true. Of course, this would be a boring logic, and not very useful. Similarly there are type systems that are very boring and not useful (in a mathematical sense), and type systems that are more interesting and expressive (remember, a type system and a logic are the same thing under the CHI). Basically every type system of an imperative language is part of the former category: they are pretty boring from a math point of view.</p>
+<p>It is important here to understand that most mathematics is concerned with “interesting” logics (e.g. first-order logic or dependent logic). But you could as well construct a logic where everything is true. Of course, this would be a boring logic, and not very useful. Similarly, there are type systems that are very boring and not useful (in a mathematical sense), and type systems that are more interesting and expressive (remember, a type system and a logic are the same thing under the CHI). Basically every type system of a mainstream imperative languages are part of the former category: they are pretty boring from a math point of view.</p>
 
 <p>To get back to the original question: observe that in Java every type is inhabited, because of <code class="highlighter-rouge">null</code>. This means that everything is provable, and hence every type is true. This means the <code class="highlighter-rouge">List&lt;String&gt;</code> type or whichever other type don’t have much meaning. They just are <code class="highlighter-rouge">True</code>.</p>
 
 <p>But let’s pretend that <code class="highlighter-rouge">null</code> does not exist in Java (<a href="https://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions">even the creator said that null was a mistake</a>)
 Now let’s try and use what we learned and construct a simple logic and some proofs in Java. We will start with trueity and falsity. The <code class="highlighter-rouge">True</code> proposition should always be true, so we can make it a type that is always constructible:</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">True</span> <span class="o">{</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">True</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="nf">True</span><span class="o">()</span> <span class="o">{}</span>
 <span class="o">}</span>
 </code></pre></div></div>
 
-<p>Pretty lame, I know. But all beginnings are small. To a create <code class="highlighter-rouge">False</code>, we need a type that cannot be constructed (barring <code class="highlighter-rouge">null</code>). I don’t know any way to do this in Java: if we don’t supply a constructor Java creates a default constructor. (And creating a abstract class does not prevent the possibility that a subclass is made.) So let’s cheat<sup id="fnref:FalseInhabitation"><a href="#fn:FalseInhabitation" class="footnote">1</a></sup> and just use this:</p>
+<p>Pretty lame, I know. But all beginnings are small. To create a <code class="highlighter-rouge">False</code>, we need a type that cannot be constructed (barring <code class="highlighter-rouge">null</code>). I don’t know any way to do this in Java: if we don’t supply a constructor Java creates a default constructor. (And apparently you can’t make an abstract class final.) So let’s cheat<sup id="fnref:FalseInhabitation"><a href="#fn:FalseInhabitation" class="footnote">1</a></sup> and just use this:</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">False</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="nf">False</span><span class="o">()</span> <span class="o">{</span>
@@ -1547,8 +1547,9 @@ Now let’s try and use what we learned and construct a simple logic and some pr
 <span class="o">}</span>
 </code></pre></div></div>
 
-<p>I’ll use asserts when I’m cheating.
-Now to more interesting stuff. How could you create a logical <code class="highlighter-rouge">and</code>? <code class="highlighter-rouge">A and B</code> is only true if both A and B are true. So the type for <code class="highlighter-rouge">A and B</code> must only be constructible if both A and B are constructible. In essence this means <code class="highlighter-rouge">and</code> is a pair! Indeed, you can only create a pair if you can also make the two arguments.</p>
+<p>I’ll use asserts when I’m cheating. But know that in practice this would break our proof system, the error should be thrown when type checking and not at run time.</p>
+
+<p>Now to more interesting stuff. How could you create a logical <code class="highlighter-rouge">and</code>? <code class="highlighter-rouge">A and B</code> is only true if both A and B are true. So the type for <code class="highlighter-rouge">A and B</code> must only be constructible if both A and B are constructible. In essence this means <code class="highlighter-rouge">and</code> is a pair! Indeed, you can only create a pair if you can also make the two arguments.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">And</span><span class="o">&lt;</span><span class="no">A</span><span class="o">,</span> <span class="no">B</span><span class="o">&gt;</span> <span class="o">{</span>
 
@@ -1571,9 +1572,9 @@ Now to more interesting stuff. How could you create a logical <code class="highl
 <span class="o">}</span>
 </code></pre></div></div>
 
-<p>This is the first non-trivial piece of code, so make sure you understand it. There is a single way of construction and two ways to destruct. This is just like in an actual logic, where there would be one derivation rule to create an <code class="highlighter-rouge">and</code> and two ways to use it.</p>
+<p>This is the first non-trivial piece of code, so make sure you understand it. There is a single way of construction and two ways to destruct. This is just like in an actual logic, where there would be one derivation rule to create an <code class="highlighter-rouge">and</code> and two ways to project it.</p>
 
-<p>Next up, the implication. <code class="highlighter-rouge">A =&gt; B</code> is true if, when A is true, B is also true. So B is constructible if A is constructible. This is in essence a function. Indeed, a function can create B, given A. This means that our implication will just be wrapper around <code class="highlighter-rouge">Function</code>.</p>
+<p>Next up, the implication. <code class="highlighter-rouge">A =&gt; B</code> is true if, when A is true, B is also true. So B is constructible if A is constructible. This is in essence a function. Indeed, a function can create B, only when given A. This means that our implication will just be wrapper around <code class="highlighter-rouge">Function</code>.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">Imply</span><span class="o">&lt;</span><span class="no">A</span><span class="o">,</span> <span class="no">B</span><span class="o">&gt;</span> <span class="o">{</span>
     
@@ -1598,12 +1599,11 @@ Now to more interesting stuff. How could you create a logical <code class="highl
 <span class="nc">Imply</span><span class="o">&lt;</span><span class="nc">And</span><span class="o">&lt;</span><span class="no">A</span><span class="o">,</span> <span class="no">B</span><span class="o">&gt;,</span> <span class="no">B</span><span class="o">&gt;</span> <span class="n">thm1</span><span class="o">;</span>
 </code></pre></div></div>
 
-<p>In the comment, I stated the exact same thing, but using symbols and infix instead of prefix.</p>
+<p>In the comment, I stated the exact same thing, but using symbols and infix notation instead of prefix. Initially, it can be helpful to translate the theorem to the programming equivalent in your head (make a function that takes a pair, and returns the second part of the pair). We can do this with:</p>
 
-<p>To prove this type, we need to create a program for this type:</p>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">thm1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Imply</span><span class="o">&lt;&gt;(</span><span class="nl">And:</span><span class="o">:</span><span class="n">projRight</span><span class="o">);</span>
 </code></pre></div></div>
-<p>If the theorem is very basic, the proof is even more so. We simply use one of the two deconstructors, which gives us the proof after wrapping it in the <code class="highlighter-rouge">Imply</code>. Next up I’m going to add a little more logic so we can do more interesting proofs.</p>
+<p>We simply use one of the two deconstructors, which gives us the proof after wrapping the function in an <code class="highlighter-rouge">Imply</code>. Next up I’m going to add a little more logic so we can do more interesting proofs.</p>
 
 <h1 id="more-logic">More logic</h1>
 
@@ -1664,14 +1664,14 @@ Now to more interesting stuff. How could you create a logical <code class="highl
 
 <h1 id="more-proofs">More proofs</h1>
 
-<p>Just like any maths, you need to work on it yourself to really understand it. It’s a good exercise to try and prove these types before looking at my program. Or even better: state your own theorems, convert them to types and prove them.</p>
+<p>Just like any maths, you need to work on it yourself to really understand it. It’s a good exercise to try and prove these types before looking at my program. Or even better: state your own theorems, convert them to types and prove them!</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Theorem 2: A | A =&gt; A</span>
 <span class="nc">Function</span><span class="o">&lt;</span><span class="nc">Or</span><span class="o">&lt;</span><span class="no">A</span><span class="o">,</span> <span class="no">A</span><span class="o">&gt;,</span> <span class="no">A</span><span class="o">&gt;</span> <span class="n">thm2</span><span class="o">;</span>
 <span class="n">thm2</span> <span class="o">=</span> <span class="n">given</span> <span class="o">-&gt;</span> <span class="n">given</span><span class="o">.</span><span class="na">caseOf</span><span class="o">(</span><span class="n">id_thm</span><span class="o">,</span> <span class="n">id_thm</span><span class="o">);</span>
 </code></pre></div></div>
 
-<p>So for only one-liners. To prove a law of De Morgan we’ll need a bit more:</p>
+<p>So far only one-liners. Proving a <a href="https://en.wikipedia.org/wiki/De_Morgan%27s_laws">law of De Morgan</a> is a bit more difficult:</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Theorem 3: !x | !y =&gt; !(x &amp; y)</span>
 <span class="nc">Imply</span><span class="o">&lt;</span><span class="nc">Or</span><span class="o">&lt;</span><span class="nc">Not</span><span class="o">&lt;</span><span class="no">X</span><span class="o">&gt;,</span> <span class="nc">Not</span><span class="o">&lt;</span><span class="no">Y</span><span class="o">&gt;&gt;</span> <span class="o">,</span> <span class="nc">Not</span><span class="o">&lt;</span><span class="nc">And</span><span class="o">&lt;</span><span class="no">X</span><span class="o">,</span> <span class="no">Y</span><span class="o">&gt;&gt;&gt;</span> <span class="n">thm7</span><span class="o">;</span>
@@ -1683,34 +1683,47 @@ Now to more interesting stuff. How could you create a logical <code class="highl
 <span class="o">));</span>
 </code></pre></div></div>
 
-<p>As Java is not exactly great for type theory, you’ll note that these proofs get hard to follow very quick. Specialized languages for theorem-proving have ways of dealing with this (interactive provers, holes, tactics), but this problem can remain even then.</p>
+<p>You’ll agree that these proofs get hard to follow very quick (who would have thought that Java was not designed to prove theorems?). Specialized languages for theorem-proving have ways of dealing with this (interactive provers, holes, tactics, etc) but this problem can remain even then.</p>
 
-<h1 id="intuitive-flaws">Intuitive flaws</h1>
+<h1 id="constructive-flaws">Constructive flaws</h1>
 
 <p>Try to prove the following theorem: <code class="highlighter-rouge">!(!A) =&gt; A</code>. It seems simple enough, but you’ll quickly realize that it can’t be done. How come?</p>
 
-<p>Even worse, there many other statements that can’t be proven. Famously, the law of exclude the middle is not provable in this logic:</p>
+<p>Even worse, there many other statements that can’t be proven. Famously, the <a href="https://en.wikipedia.org/wiki/Law_of_excluded_middle">law of excluded middle</a> is not provable in this logic:</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Theorem 2: A | !A</span>
 <span class="nc">Or</span><span class="o">&lt;</span><span class="no">A</span><span class="o">,</span> <span class="nc">Not</span><span class="o">&lt;</span><span class="no">A</span><span class="o">&gt;&gt;</span> <span class="n">thm4</span><span class="o">;</span>
 <span class="n">thm4</span> <span class="o">=</span> <span class="o">?</span> <span class="c1">// not provable</span>
 </code></pre></div></div>
 
-<p>This is because the logic we created is not entirely the same as “regular” first-order logic.</p>
+<p>This is because the logic we created is not entirely the same as classic first-order logic (mathematicians call this a <a href="https://en.wikipedia.org/wiki/Intuitionistic_logic">intuitionistic logic</a>).</p>
 
 <p>Here we are bearing the consequences of the demand to make everything constructible. For example, when you want to make a proof that there is some number X that has a property Y, you need to actually give X. In regular maths, this is not always the case, you sometimes can give an argument that X definitely must exist, without actually showing what it is. Hence constructible logic is weaker than regular logic. Everything that can be proven in constructible logic is provable in regular logic, but not the other way round.</p>
 
-<p>To get back to the law of exclude the middle: you could only prove it by giving a program that always decides whether A is true or not. Sadly this is not possible, for example, take A as “this Turing machine terminates”. You know for certain that a Turing machine will either terminate or not, but you cannot generally prove which of the two it will be, and hence you can’t give a constructive proof.</p>
+<p>To get back to the law of excluded middle: you could only prove it by giving a program that always decides whether A is true or not. Sadly this is not possible, for example, take A as “this Turing machine terminates”. You know for certain that a Turing machine will either terminate or not, but you cannot generally prove which of the two it will be, and hence you can’t give a constructive proof.</p>
 
-<h1 id="references">References:</h1>
-<p>Todo</p>
+<h1 id="idris">Idris</h1>
+
+<p>So for our examples where not something that could be useful in real life. Sadly Java’s type system is too simple for any pratical applications. If you are interested in this, I would suggest looking at <a href="https://www.idris-lang.org/">Idris</a>. It’s an eager functional programming language, with dependent types. This allows for very expressive types. You can e.g. define a type of sorted lists, or prime numbers.</p>
+
+<p>For example consider an append function that sticks two lists together. In Idris we can demand in the type that the length of the resulting lists is the sum of the lengths of the two input lists.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>append : Vect n a -&gt; Vect m a -&gt; Vect (n + m) a
+</code></pre></div></div>
+<p><code class="highlighter-rouge">Vect</code> is a list which carries its length in the type. When we implement append, the Idris type checker will automatically check if our implementation conforms the type:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>append Nil       ys = ys
+append (x :: xs) ys = x :: append xs ys
+</code></pre></div></div>
+
+<p>As a more involved example: <a href="https://github.com/davidfstr/idris-insertion-sort">here</a> they implement an insertion sort and prove that it will always return a sorted list.</p>
 
 <h1 id="footnotes">Footnotes:</h1>
 
 <div class="footnotes">
   <ol>
     <li id="fn:FalseInhabitation">
-      <p>This would not be acceptable in a real setting: <code class="highlighter-rouge">new False()</code> would still type-check. Hence you could prove any false theorem (i.e. the logic isn’t sound). Again, this is again a limitation of Java, but we will keep a blind eye to it just like for <code class="highlighter-rouge">null</code>. There are other similar problems in the content that follows, e.g. for the <code class="highlighter-rouge">Or</code> you would need to be able to guarantee that you cannot create any other implementation besides <code class="highlighter-rouge">OrLeft</code> and <code class="highlighter-rouge">OrRight</code>. <a href="#fnref:FalseInhabitation" class="reversefootnote">&#8617;</a></p>
+      <p>This would not be acceptable in a real setting: <code class="highlighter-rouge">new False()</code> would still type-check. Hence you could prove any false theorem (i.e. the logic isn’t sound). Again, this is again a limitation of Java, but we will keep a blind eye to it just like for <code class="highlighter-rouge">null</code>. There are other similar problems in the content that follows, e.g. for the <code class="highlighter-rouge">Or</code> you would need to be able to guarantee that you cannot create any other implementation besides <code class="highlighter-rouge">OrLeft</code> and <code class="highlighter-rouge">OrRight</code>. And we haven’t even considers Java’s ability for arbitrary recursion, which also <a href="https://en.wikipedia.org/wiki/Curry%27s_paradox#Lambda_calculus">breaks proof systems</a>. <a href="#fnref:FalseInhabitation" class="reversefootnote">&#8617;</a></p>
     </li>
   </ol>
 </div>
@@ -1733,7 +1746,7 @@ Now to more interesting stuff. How could you create a logical <code class="highl
 
 
 <footer class="footer-main">
-    Jaron J.C. Maene © 2020 <a class="link" href="https://maene.dev/feed.xml" target="_blank"><svg class="icon icon-rss"><use xlink:href="#icon-rss"></use></svg></a>
+    Jaron J.C. Maene © 2021 <a class="link" href="https://maene.dev/feed.xml" target="_blank"><svg class="icon icon-rss"><use xlink:href="#icon-rss"></use></svg></a>
 </footer>
 
 
