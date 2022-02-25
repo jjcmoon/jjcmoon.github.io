@@ -32,27 +32,15 @@
 <!-- End Jekyll SEO tag -->
 
     
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://maene.dev/assets/images/favicon/apple-touch-icon-57x57.png" />
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://maene.dev/assets/images/favicon/apple-touch-icon-114x114.png" />
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://maene.dev/assets/images/favicon/apple-touch-icon-72x72.png" />
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://maene.dev/assets/images/favicon/apple-touch-icon-144x144.png" />
-<link rel="apple-touch-icon-precomposed" sizes="60x60" href="https://maene.dev/assets/images/favicon/apple-touch-icon-60x60.png" />
-<link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://maene.dev/assets/images/favicon/apple-touch-icon-120x120.png" />
-<link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://maene.dev/assets/images/favicon/apple-touch-icon-76x76.png" />
-<link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://maene.dev/assets/images/favicon/apple-touch-icon-152x152.png" />
-<link rel="icon" type="image/png" href="https://maene.dev/assets/images/favicon/favicon-196x196.png" sizes="196x196" />
-<link rel="icon" type="image/png" href="https://maene.dev/assets/images/favicon/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/png" href="https://maene.dev/assets/images/favicon/favicon-32x32.png" sizes="32x32" />
-<link rel="icon" type="image/png" href="https://maene.dev/assets/images/favicon/favicon-16x16.png" sizes="16x16" />
-<link rel="icon" type="image/png" href="https://maene.dev/assets/images/favicon/favicon-128.png" sizes="128x128" />
-<meta name="application-name" content="&nbsp;"/>
-<meta name="msapplication-TileColor" content="#FFFFFF" />
-<meta name="msapplication-TileImage" content="mstile-144x144.png" />
-<meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
-<meta name="msapplication-square150x150logo" content="mstile-150x150.png" />
-<meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
-<meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
-
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+<link rel="manifest" href="assets/images/favicon/site.webmanifest">
+<link rel="mask-icon" href="assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="assets/images/favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="assets/images/favicon/browserconfig.xml">
+<meta name="theme-color" content="#f0f0f0">
 
     <link rel="canonical" href="https://maene.dev/curry-howard/">
     <link rel="alternate" type="application/rss+xml" title="" href="https://maene.dev/feed.xml" />
@@ -685,6 +673,17 @@ pre {
   background: #fff;
   border: 1px solid #ededed;
   border-radius: 2px; }
+
+table {
+  border-collapse: collapse;
+  margin: 0px auto; }
+
+tr {
+  border: solid;
+  border-width: 1px 0; }
+
+th, td {
+  padding: 8px; }
 
 .wrapper-normal,
 .wrapper-large {
@@ -1700,20 +1699,20 @@ Now let’s try and use what we learned and construct a simple logic and some pr
 
 <p>Here we are bearing the consequences of the demand to make everything constructible. For example, when you want to make a proof that there is some number X that has a property Y, you need to actually give X. In regular maths, this is not always the case, you sometimes can give an argument that X definitely must exist, without actually showing what it is. Hence constructible logic is weaker than regular logic. Everything that can be proven in constructible logic is provable in regular logic, but not the other way round.</p>
 
-<p>To get back to the law of excluded middle: you could only prove it by giving a program that always decides whether A is true or not. Sadly this is not possible, for example, take A as “this Turing machine terminates”. You know for certain that a Turing machine will either terminate or not, but you cannot generally prove which of the two it will be, and hence you can’t give a constructive proof.</p>
+<p>To get back to the law of excluded middle: you could only prove it by giving a program that always decides whether A is true or not. Sadly this is not possible, for example, take A as “<a href="https://en.wikipedia.org/wiki/Halting_problem">this Turing machine terminates</a>”. You know for certain that a Turing machine will either terminate or not, but you cannot generally prove which of the two it will be, and hence you can’t give a constructive proof.</p>
 
 <h1 id="idris">Idris</h1>
 
-<p>So for our examples where not something that could be useful in real life. Sadly Java’s type system is too simple for any pratical applications. If you are interested in this, I would suggest looking at <a href="https://www.idris-lang.org/">Idris</a>. It’s an eager functional programming language, with dependent types. This allows for very expressive types. You can e.g. define a type of sorted lists, or prime numbers.</p>
+<p>So far our examples where not something that could be useful in real life. Sadly Java’s type system is too simple for any practical applications. If you are interested in this, I would suggest looking at <a href="https://www.idris-lang.org/">Idris</a>. It’s an eager functional programming language, with dependent types. This allows for some very expressive types. You can e.g. define a type of sorted lists, or prime numbers.</p>
 
-<p>For example consider an append function that sticks two lists together. In Idris we can demand in the type that the length of the resulting lists is the sum of the lengths of the two input lists.</p>
+<p>For example, consider an append function that sticks together two lists. In Idris we can demand in the type that the length of the resulting lists is the sum of the lengths of the two input lists.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>append : Vect n a -&gt; Vect m a -&gt; Vect (n + m) a
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">append</span> <span class="o">:</span> <span class="kt">Vect</span> <span class="n">n</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">Vect</span> <span class="n">m</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">Vect</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="n">m</span><span class="p">)</span> <span class="n">a</span>
 </code></pre></div></div>
-<p><code class="highlighter-rouge">Vect</code> is a list which carries its length in the type. When we implement append, the Idris type checker will automatically check if our implementation conforms the type:</p>
+<p><code class="highlighter-rouge">Vect</code> is a list which carries its length in the type. When we implement <code class="highlighter-rouge">append</code>, the Idris type checker will automatically check if our implementation conforms the type:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>append Nil       ys = ys
-append (x :: xs) ys = x :: append xs ys
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">append</span> <span class="kt">Nil</span>       <span class="n">ys</span> <span class="o">=</span> <span class="n">ys</span>
+<span class="n">append</span> <span class="p">(</span><span class="n">x</span> <span class="o">::</span> <span class="n">xs</span><span class="p">)</span> <span class="n">ys</span> <span class="o">=</span> <span class="n">x</span> <span class="o">::</span> <span class="n">append</span> <span class="n">xs</span> <span class="n">ys</span>
 </code></pre></div></div>
 
 <p>As a more involved example: <a href="https://github.com/davidfstr/idris-insertion-sort">here</a> they implement an insertion sort and prove that it will always return a sorted list.</p>
@@ -1746,7 +1745,7 @@ append (x :: xs) ys = x :: append xs ys
 
 
 <footer class="footer-main">
-    Jaron J.C. Maene © 2021 <a class="link" href="https://maene.dev/feed.xml" target="_blank"><svg class="icon icon-rss"><use xlink:href="#icon-rss"></use></svg></a>
+    Jaron J.C. Maene © 2022 <a class="link" href="https://maene.dev/feed.xml" target="_blank"><svg class="icon icon-rss"><use xlink:href="#icon-rss"></use></svg></a>
 </footer>
 
 

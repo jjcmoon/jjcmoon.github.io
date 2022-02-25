@@ -32,27 +32,15 @@
 <!-- End Jekyll SEO tag -->
 
     
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://maene.dev/assets/images/favicon/apple-touch-icon-57x57.png" />
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://maene.dev/assets/images/favicon/apple-touch-icon-114x114.png" />
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://maene.dev/assets/images/favicon/apple-touch-icon-72x72.png" />
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://maene.dev/assets/images/favicon/apple-touch-icon-144x144.png" />
-<link rel="apple-touch-icon-precomposed" sizes="60x60" href="https://maene.dev/assets/images/favicon/apple-touch-icon-60x60.png" />
-<link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://maene.dev/assets/images/favicon/apple-touch-icon-120x120.png" />
-<link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://maene.dev/assets/images/favicon/apple-touch-icon-76x76.png" />
-<link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://maene.dev/assets/images/favicon/apple-touch-icon-152x152.png" />
-<link rel="icon" type="image/png" href="https://maene.dev/assets/images/favicon/favicon-196x196.png" sizes="196x196" />
-<link rel="icon" type="image/png" href="https://maene.dev/assets/images/favicon/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/png" href="https://maene.dev/assets/images/favicon/favicon-32x32.png" sizes="32x32" />
-<link rel="icon" type="image/png" href="https://maene.dev/assets/images/favicon/favicon-16x16.png" sizes="16x16" />
-<link rel="icon" type="image/png" href="https://maene.dev/assets/images/favicon/favicon-128.png" sizes="128x128" />
-<meta name="application-name" content="&nbsp;"/>
-<meta name="msapplication-TileColor" content="#FFFFFF" />
-<meta name="msapplication-TileImage" content="mstile-144x144.png" />
-<meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
-<meta name="msapplication-square150x150logo" content="mstile-150x150.png" />
-<meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
-<meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
-
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+<link rel="manifest" href="assets/images/favicon/site.webmanifest">
+<link rel="mask-icon" href="assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="assets/images/favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="assets/images/favicon/browserconfig.xml">
+<meta name="theme-color" content="#f0f0f0">
 
     <link rel="canonical" href="https://maene.dev/lth/">
     <link rel="alternate" type="application/rss+xml" title="" href="https://maene.dev/feed.xml" />
@@ -685,6 +673,17 @@ pre {
   background: #fff;
   border: 1px solid #ededed;
   border-radius: 2px; }
+
+table {
+  border-collapse: collapse;
+  margin: 0px auto; }
+
+tr {
+  border: solid;
+  border-width: 1px 0; }
+
+th, td {
+  padding: 8px; }
 
 .wrapper-normal,
 .wrapper-large {
@@ -1460,14 +1459,16 @@ pre {
     </div>
 
 
-<p>In this post I aim to give a condensed overview of the current research on the lottery ticket hypothesis (LTH). As most of this is quite recent work, I’ve found there are few comprehensive resources as of now, and knowledge is mostly still scattered around in papers. For other sources, I can recommend:</p>
+<p>The lottery ticket hypothesis spawned an emerging subfield of neural network pruning, that both relates to the practical issues that are associated with huge model sizes, but also poses an empirical vehicle to better understand the networks it prunes. As most of this is work is still quite new, I’ve found few comprehensive resources on the subject (as of spring 2021), and knowledge is mostly still scattered around in papers. Hence, I aim to give a compressed overview of the field.</p>
+
+<p>For other sources on the LTH, I can recommend:</p>
 
 <ul>
-  <li>The original papers on the LTH by Frankle et al. (<a href="https://arxiv.org/abs/1803.03635">1</a>, <a href="https://arxiv.org/abs/1912.05671">2</a>). They are excellently written and contain very in-depth appendices.</li>
+  <li>The original papers on the LTH by Frankle et al. (<a href="https://arxiv.org/abs/1803.03635">1</a>, <a href="https://arxiv.org/abs/1912.05671">2</a>). Definitely check them out, they are excellently written and contain <em>very</em> in-depth appendices.</li>
   <li><a href="https://roberttlange.github.io/posts/2020/06/lottery-ticket-hypothesis/">A survey by R. Lange</a>, summarizing a lot of the core papers on the LTH.</li>
 </ul>
 
-<p>I’ll assume basic familiarity with neural network pruning. This post has been based on a chapter from my master thesis.</p>
+<p>I’ll assume basic familiarity with neural network pruning. If you’re interested in learning more about neural network sparsity/pruning in general, I can think of no better resource than <a href="https://www.youtube.com/watch?v=H7-p3OWPpEI">this lecture</a>, where Torsten Hoefler gives an extensive introduction on the field, based on his 90-page <a href="https://arxiv.org/abs/2102.00554">survey paper</a>.</p>
 
 <h2 id="cha:1">The lottery ticket hypothesis</h2>
 
@@ -1742,7 +1743,7 @@ established weight-based form of transfer learning.</p>
 
 
 <footer class="footer-main">
-    Jaron J.C. Maene © 2021 <a class="link" href="https://maene.dev/feed.xml" target="_blank"><svg class="icon icon-rss"><use xlink:href="#icon-rss"></use></svg></a>
+    Jaron J.C. Maene © 2022 <a class="link" href="https://maene.dev/feed.xml" target="_blank"><svg class="icon icon-rss"><use xlink:href="#icon-rss"></use></svg></a>
 </footer>
 
 
