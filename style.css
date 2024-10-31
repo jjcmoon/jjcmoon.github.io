@@ -27,4 +27,5 @@ td.news {
   white-space: nowrap;
   vertical-align: top;
   color: gray;
+  text-align: right;
 }
