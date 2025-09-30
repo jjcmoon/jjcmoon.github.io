@@ -158,11 +158,18 @@ I have reviewed for JMLR, JAIR, ICLR25, and NeurIPS25.
 
 <div style="color:gray">
   <p>
-    <em>The preceding merely defines a way of thinking. But the point is to live.</em><br>
-    <span style="float: right;">— Albert Camus, Le Mythe de Sisyphe</span>
+    <em id="quote-text"></em><br>
+    <span id="quote-author" style="float: right;"></span>
   </p>
 Last updated: September, 2025.
 </div>
+
+<script src="quotes.js"></script>
+<script>
+  const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+  document.getElementById('quote-text').textContent = randomQuote.text;
+  document.getElementById('quote-author').textContent = '— ' + randomQuote.author;
+</script>
 
 <script data-goatcounter="https://jjcmoon.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
