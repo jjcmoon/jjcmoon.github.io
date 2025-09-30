@@ -18,7 +18,7 @@ const quotes = [
   {
     "text": "Man is fond of counting his troubles, but he does not count his joys.",
     "author": "Fyodor Dostoevsky, Notes from the Underground"
-  }
+  },
   {
     "text": "All we have to decide is what to do with the time that is given to us.",
     "author": "J.R.R. Tolkien, The Fellowship of the Ring"
