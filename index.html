@@ -25,7 +25,12 @@
   <br><br>
 
 <p>
-  Hey there, I'm Jaron, a PhD candidate part of the <a href="https://wms.cs.kuleuven.be/dtai">DTAI</a> research group at <a href="https://www.kuleuven.be/english">KU Leuven</a>, supervised by <a href="https://wms.cs.kuleuven.be/people/lucderaedt">Luc De Raedt</a>. I do research in the intersection of probabilistic reasoning and deep learning (<em>neurosymbolic AI</em>).
+  Hey there, I'm Jaron, a PhD candidate part of the <a href="https://wms.cs.kuleuven.be/dtai">DTAI</a> research group at <a href="https://www.kuleuven.be/english">KU Leuven</a>, supervised by <a href="https://wms.cs.kuleuven.be/people/lucderaedt">Luc De Raedt</a>. 
+  I do research in the intersection of probabilistic reasoning and deep learning (<em>neurosymbolic AI</em>).
+</p>
+
+<p>
+My research interests involve machine learning models that exploit both data and (logical) knowledge. This knowledge is usually represented as logic programs and tractable circuits. I think about how to do (exact/approximate) inference on these models and how to effectively optimize these models.
 </p>
 
 <hr>
@@ -64,23 +69,38 @@
 
 <table>
     <tr>
-    <td><i>Embeddings as Probabilistic Equivalence in Logic Programs</i><div class="paper-summary">Proposes a distribution semantics of logic programming using probabilistic equivalence instead of probabilistic facts, leading to an end-to-end differentiable prover without local minima.</div></td>
+    <td><i>Embeddings as Probabilistic Equivalence in Logic Programs</i>
+      <div class="paper-summary">Proposes a distribution semantics of logic programming using probabilistic equivalence instead of probabilistic facts, leading to an end-to-end differentiable prover without local minima.</div>
+      <span class="paper-links"><a href="https://openreview.net/pdf?id=rEUbDhWaXh">paper</a><a href="https://www.youtube.com/watch?v=sOTXBsmGZQI">video</a><a href="https://github.com/ML-KULeuven/equality_reasoning">code</a></span>
+    </td>
     <td class="news">NeurIPS25</td>
   </tr>
   <tr>
-    <td><i>KLay: Accelerating Arithmetic Circuits for Neurosymbolic AI</i><div class="paper-summary">Introduces knowledge layers (KLay), a new GPU-optimized library for evaluating sparse arithmetic circuits, achieving speedups of multiple orders of magnitude over existing methods.</div><span class="paper-links"><a href="https://openreview.net/pdf?id=Zes7Wyif8G">paper</a><a href="https://www.youtube.com/watch?v=9IYy6Sy852Y">video</a><a href="https://github.com/ML-KULeuven/klay">code</a></span></td>
+    <td>
+      <i>KLay: Accelerating Arithmetic Circuits for Neurosymbolic AI</i>
+      <div class="paper-summary">Introduces knowledge layers (KLay), a new GPU-optimized library for evaluating sparse arithmetic circuits, achieving speedups of multiple orders of magnitude over existing methods.</div>
+      <span class="paper-links"><a href="https://openreview.net/pdf?id=Zes7Wyif8G">paper</a><a href="https://www.youtube.com/watch?v=9IYy6Sy852Y">video</a><a href="https://github.com/ML-KULeuven/klay">code</a></span>
+    </td>
     <td class="news">ICLR25</td>
   </tr>
     <tr>
-    <td><i>The Gradient of Algebraic Model Counting</i> (Oral, top 4.6%)<div class="paper-summary">Extends algebraic model counting from inference to learning by generalizing gradients and backpropagation to different semirings, unifying various learning algorithms in neurosymbolic AI.</div><span class="paper-links"><a href="https://arxiv.org/pdf/2502.18406">paper</a><a href="https://www.youtube.com/watch?v=1PtfJ43RSKo">video</a><a href="https://github.com/ML-KULeuven/amc-grad">code</a></span></td>
+    <td>
+      <i>The Gradient of Algebraic Model Counting</i> (Oral, top 4.6%)
+      <div class="paper-summary">Extends algebraic model counting from inference to learning by generalizing gradients and backpropagation to different semirings, unifying various learning algorithms in neurosymbolic AI.</div>
+      <span class="paper-links"><a href="https://arxiv.org/pdf/2502.18406">paper</a><a href="https://www.youtube.com/watch?v=1PtfJ43RSKo">video</a><a href="https://github.com/ML-KULeuven/amc-grad">code</a></span>
+    </td>
     <td class="news">AAAI25</td>
   </tr>
     <tr>
-    <td><i>On the Hardness of Probabilistic Neurosymbolic Learning</i><div class="paper-summary">Studies the computational complexity of differentiating probabilistic reasoning and introduces WeightME, an unbiased gradient estimator with provides probabilistic guarantees.</div><span class="paper-links"><a href="https://arxiv.org/pdf/2406.04472">paper</a><a href="https://www.youtube.com/watch?v=sWJU9dag5i8">video</a><a href="https://github.com/jjcmoon/hardness-nesy">code</a></span></td>
+    <td><i>On the Hardness of Probabilistic Neurosymbolic Learning</i>
+      <div class="paper-summary">Studies the computational complexity of differentiating probabilistic reasoning and introduces WeightME, an unbiased gradient estimator with provides probabilistic guarantees.</div>
+      <span class="paper-links"><a href="https://arxiv.org/pdf/2406.04472">paper</a><a href="https://www.youtube.com/watch?v=sWJU9dag5i8">video</a><a href="https://github.com/jjcmoon/hardness-nesy">code</a></span></td>
     <td class="news">ICML24</td>
   </tr>
     <tr>
-    <td><i>Soft-Unification in Deep Probabilistic Programming</i><div class="paper-summary">Introduces DeepSoftLog, a principled probabilistic framework for soft-unification that addresses limitations in previous neural theorem provers and enables end-to-end differentiable logic rule learning.</div><span class="paper-links"><a href="https://openreview.net/pdf?id=s86M8naPSv">paper</a><a href="https://www.youtube.com/watch?v=3yQbcer-suA">video</a><a href="https://github.com/jjcmoon/DeepSoftLog">code</a></span>
+    <td><i>Soft-Unification in Deep Probabilistic Programming</i>
+      <div class="paper-summary">Introduces DeepSoftLog, a principled probabilistic framework for soft-unification that addresses limitations in previous neural theorem provers and enables end-to-end differentiable logic rule learning.</div>
+      <span class="paper-links"><a href="https://openreview.net/pdf?id=s86M8naPSv">paper</a><a href="https://www.youtube.com/watch?v=3yQbcer-suA">video</a><a href="https://github.com/jjcmoon/DeepSoftLog">code</a></span>
     </td>
     <td class="news">NeurIPS23</td>
   </tr>
@@ -95,7 +115,7 @@
 
 <table>
   <tr>
-    <td>I gave a talk a the StarAI lab at UCLA.</td>
+    <td>I gave a talk a the <a href="https://starai.cs.ucla.edu/">StarAI lab</a> at UCLA.</td>
     <td class="news">Nov 24</td>
   </tr>
   <tr>
