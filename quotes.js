@@ -4,10 +4,6 @@ const quotes = [
     "author": "Albert Camus, Le Mythe de Sisyphe"
   },
   {
-    "text": "The map is not the territory.",
-    "author": "Alfred Korzybski"
-  },
-  {
     "text": "For now, what is important is not finding the answer, but looking for it.",
     "author": " Douglas Hofstadter, Gödel, Escher, Bach"
   },
