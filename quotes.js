@@ -5,7 +5,7 @@ const quotes = [
   },
   {
     "text": "For now, what is important is not finding the answer, but looking for it.",
-    "author": " Douglas Hofstadter, Gödel, Escher, Bach"
+    "author": "Douglas Hofstadter, Gödel, Escher, Bach"
   },
   {
     "text": "Yet here poor fool for all my lore, I stand no wiser than before.",
