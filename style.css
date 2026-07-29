@@ -1,28 +1,45 @@
 body {
-  margin:40px auto;
-  max-width:680px;
-  line-height:1.4;
-  font:18px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  color:#444;
-  padding:0 15px;
-  /* background-color:#E7EAEE; */
+  margin: 40px auto;
+  max-width: 680px;
+  font: 18px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  color: #444;
+  padding: 0 15px;
 }
-h1,h2,h3 {
-  line-height:1.2
-}
-*.unselectable {
-  -moz-user-select: -moz-none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
 
-  /*
-    Introduced in IE 10.
-    See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
-  */
-  -ms-user-select: none;
-  user-select: none;
-  color: white;
+h1,
+h2,
+h3 {
+  line-height: 1.2;
 }
+
+.site-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #888;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 1.5em;
+  white-space: nowrap;
+}
+
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.banner {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
@@ -56,9 +73,58 @@ a:hover {
   background-color: #e9e9e9;
   color: #333;
 }
+
+a:focus-visible {
+  border-radius: 2px;
+  outline: 2px solid #005fcc;
+  outline-offset: 3px;
+}
+
 .paper-summary {
   color: #666;
   font-size: 0.9em;
   margin-top: 3px;
   line-height: 1.3;
+}
+
+.site-footer {
+  margin-top: 1.5rem;
+}
+
+.footer-meta {
+  color: gray;
+}
+
+.site-quote {
+  margin: 1rem 0 2rem;
+}
+
+.site-quote p {
+  margin: 0;
+}
+
+#quote-author {
+  display: block;
+  margin-top: 0.25rem;
+  text-align: right;
+}
+
+.last-updated {
+  margin-bottom: 0;
+}
+
+@media (max-width: 560px) {
+  body {
+    margin: 24px auto;
+  }
+
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .profile-links {
+    justify-content: flex-start;
+  }
 }

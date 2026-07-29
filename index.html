@@ -4,26 +4,28 @@
   <meta charset="utf-8">
   <title>Jaron Maene</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="canonical" href="http://maene.dev" />
+  <meta name="description" content="Jaron Maene is a PhD candidate at KU Leuven researching probabilistic reasoning and neurosymbolic AI.">
+  <link rel="canonical" href="https://maene.dev/">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="assets/images/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="assets/images/favicon/site.webmanifest">
   <link rel="stylesheet" href="style.css">
-	
 </head>
 
-
 <body>
-<hr>
-  <div style="float: left;">
-    <h2 style="margin: auto;">Jaron Maene</h2>
-  </div>
-  <div style="float: right;">
-    <a href="mailto:jaron[dot]maene@kuleuven[dot]be">email</a> - 
-    <a href="https://scholar.google.be/citations?user=leES0h0AAAAJ">scholar</a> - 
-    <a href="https://github.com/jjcmoon">github</a> -
-    <a href="https://bsky.app/profile/jjcmoon.bsky.social">bsky</a> - 
-    <a href="https://www.linkedin.com/in/jaron-maene/">linkedin</a> 
-  </div>
-  <br><br>
+<header class="site-header">
+  <h1>Jaron Maene</h1>
+  <nav class="profile-links" aria-label="Profile links">
+    <a href="mailto:jaron.maene@kuleuven.be">email</a>
+    <a href="https://scholar.google.be/citations?user=leES0h0AAAAJ">scholar</a>
+    <a href="https://github.com/jjcmoon">github</a>
+    <a href="https://bsky.app/profile/jjcmoon.bsky.social">bsky</a>
+    <a href="https://www.linkedin.com/in/jaron-maene/">linkedin</a>
+  </nav>
+</header>
 
+<main>
 <p>
   Hey there, I'm Jaron, a PhD candidate part of the <a href="https://wms.cs.kuleuven.be/dtai">DTAI</a> research group at <a href="https://www.kuleuven.be/english">KU Leuven</a>, supervised by <a href="https://wms.cs.kuleuven.be/people/lucderaedt">Luc De Raedt</a>. 
   I do research at the intersection of probabilistic reasoning and deep learning (<em>neurosymbolic AI</em>).
@@ -40,7 +42,7 @@ My research interests involve machine learning models that exploit both data and
 <i>If you are interested in my research, feel free to reach out.</i>
 </p>
 
-<img src="assets/banner.jpg" style="max-width: 100%">
+<img class="banner" src="assets/banner.jpg" width="2047" height="334">
 
 <hr>
 
@@ -169,19 +171,24 @@ My research interests involve machine learning models that exploit both data and
 </table> 
 
 <h2>service</h2>
-I have reviewed for JMLR, JAIR, ICLR25, and NeurIPS25.
+<p>I have reviewed for JMLR, JAIR, ICLR25, and NeurIPS25.</p>
+</main>
 
+<footer class="site-footer">
 <hr>
 
-<img src="assets/banner2.jpg" style="max-width: 100%">
+<img class="banner" src="assets/banner2.jpg" width="4009" height="678" loading="lazy">
 
-<div style="color:gray">
-  <p>
-    <em id="quote-text"></em><br>
-    <span id="quote-author" style="float: right;"></span>
-  </p>
-Last updated: July 2026.
+<div class="footer-meta">
+  <blockquote class="site-quote">
+    <p>
+      <em id="quote-text"></em>
+      <span id="quote-author"></span>
+    </p>
+  </blockquote>
+  <p class="last-updated">Last updated: July 2026.</p>
 </div>
+</footer>
 
 <script src="quotes.js"></script>
 <script>
@@ -191,7 +198,7 @@ Last updated: July 2026.
 </script>
 
 <script data-goatcounter="https://jjcmoon.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+        async src="https://gc.zgo.at/count.js"></script>
 
 </body>
 </html>
