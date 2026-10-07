@@ -14,6 +14,8 @@
     locationLabel: "Locaties",
     venue: "Verdediging · 200M 00.06",
     receptionVenue: "Receptie · Foyer Computerwetenschappen",
+    practicalitiesHeading: "Praktische informatie",
+    parkingAccess: 'Als je met de auto komt, kun je de <a href="https://www.google.com/maps/search/?api=1&amp;query=Parking+Kapeldreef,+KU+Leuven,+3001+Heverlee">parking Kapeldreef</a> gebruiken met de code 92710#.',
     onlineAttendance: "Je kunt ook online volgen. Na inschrijving ontvang je een link per e-mail.",
     supervisorLabel: "Promotor",
     calendarDownload: "Toevoegen aan agenda",

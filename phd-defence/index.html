@@ -33,31 +33,32 @@
     <a class="registration-link" href="#registration" data-registration-link data-i18n="registerAction" hidden>RSVP</a>
   </header>
 
-  <dl class="event-details">
-    <div>
-      <dt data-i18n="dateLabel">Date</dt>
-      <dd class="event-date">
-        <strong data-i18n="date">1 December 2026</strong>
-        <span class="event-schedule">
-          <span data-i18n="defenceTime">Defence · 17:00–19:00</span>
-          <span data-i18n="receptionTime">Reception · from around 19:00</span>
-        </span>
-        <a class="calendar-link" id="calendar-download" href="../assets/phd-defence/phd-defence-en.ics" type="text/calendar" download data-i18n="calendarDownload">Add to calendar</a>
-      </dd>
-    </div>
-    <div>
-      <dt data-i18n="locationLabel">Locations</dt>
-      <dd>
-        <a class="event-venue" href="https://www.google.com/maps/search/?api=1&amp;query=Celestijnenlaan+200M,+3001+Heverlee" data-i18n="venue">Defence · 200M 00.06</a>
-        <span class="event-address">Celestijnenlaan 200M, 3001 Heverlee</span>
-        <div class="reception-location">
-          <a class="event-venue" href="https://www.google.com/maps/place/Departement+computerwetenschappen/@50.8668812,4.6790574,14z/data=!4m6!3m5!1s0x47c16110fd300347:0x46c648b1747e02ae!8m2!3d50.8641528!4d4.6787596!16s%2Fg%2F1tvykxw7?entry=ttu&amp;g_ep=EgoyMDI2MDkyOS4wIKXMDSoASAFQAw%3D%3D" data-i18n="receptionVenue">Reception · Computer Science foyer</a>
-          <span class="event-address">Celestijnenlaan 200A, 3001 Heverlee</span>
-        </div>
-        <span class="online-attendance" data-i18n="onlineAttendance">You can also join online. A link will be emailed after registration.</span>
-      </dd>
-    </div>
-  </dl>
+  <div class="event-card">
+    <dl class="event-details">
+      <div>
+        <dt data-i18n="dateLabel">Date</dt>
+        <dd class="event-date">
+          <strong data-i18n="date">1 December 2026</strong>
+          <span class="event-schedule">
+            <span data-i18n="defenceTime">Defence · 17:00–19:00</span>
+            <span data-i18n="receptionTime">Reception · from around 19:00</span>
+          </span>
+          <a class="calendar-link" id="calendar-download" href="../assets/phd-defence/phd-defence-en.ics" type="text/calendar" download data-i18n="calendarDownload">Add to calendar</a>
+        </dd>
+      </div>
+      <div>
+        <dt data-i18n="locationLabel">Locations</dt>
+        <dd>
+          <a class="event-venue" href="https://www.google.com/maps/search/?api=1&amp;query=Celestijnenlaan+200M,+3001+Heverlee" data-i18n="venue">Defence · 200M 00.06</a>
+          <span class="event-address">Celestijnenlaan 200M, 3001 Heverlee</span>
+          <div class="reception-location">
+            <a class="event-venue" href="https://www.google.com/maps/place/Departement+computerwetenschappen/@50.8668812,4.6790574,14z/data=!4m6!3m5!1s0x47c16110fd300347:0x46c648b1747e02ae!8m2!3d50.8641528!4d4.6787596!16s%2Fg%2F1tvykxw7?entry=ttu&amp;g_ep=EgoyMDI2MDkyOS4wIKXMDSoASAFQAw%3D%3D" data-i18n="receptionVenue">Reception · Computer Science foyer</a>
+            <span class="event-address">Celestijnenlaan 200A, 3001 Heverlee</span>
+          </div>
+        </dd>
+      </div>
+    </dl>
+  </div>
 
   <!-- Published Tally form IDs: Dutch first, then English. -->
   <section class="registration" id="registration" tabindex="-1" aria-labelledby="registration-title" data-tally-form-id="9q8VRQ" data-tally-form-id-en="eqkzgx" hidden>
@@ -65,6 +66,12 @@
     <p data-i18n="registrationIntro">Please let me know how you will join the defence and whether you will attend the reception.</p>
     <p class="registration-language-note" hidden></p>
     <div class="registration-form"></div>
+  </section>
+
+  <section class="practicalities" aria-labelledby="practicalities-title">
+    <h2 id="practicalities-title" data-i18n="practicalitiesHeading">Practicalities</h2>
+    <p class="parking-info" data-i18n="parkingAccess">If you come by car, you can use the <a href="https://www.google.com/maps/search/?api=1&amp;query=Parking+Kapeldreef,+KU+Leuven,+3001+Heverlee">Kapeldreef parking</a> with the code 92710#.</p>
+    <p class="online-attendance" data-i18n="onlineAttendance">You can also join online. A link will be emailed after registration.</p>
   </section>
 
   <details class="abstract">

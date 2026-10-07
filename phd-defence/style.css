@@ -128,15 +128,18 @@
   display: none;
 }
 
+.event-card {
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #f5f5f5;
+}
+
 .event-details {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 2rem;
   margin: 0;
-  padding: 1.5rem;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: #f5f5f5;
 }
 
 .event-details dt {
@@ -164,6 +167,7 @@
 
 .event-schedule,
 .event-address,
+.parking-info,
 .online-attendance {
   display: block;
   font-size: 0.9em;
@@ -179,8 +183,12 @@
 }
 
 .online-attendance {
-  margin-top: 0.75rem;
-  color: var(--muted);
+  margin: 0.5rem 0 0;
+  color: #000;
+}
+
+.parking-info {
+  margin: 0;
 }
 
 .reception-location {
@@ -207,6 +215,7 @@
 }
 
 .registration,
+.practicalities,
 .abstract {
   margin-top: 2.5rem;
 }
@@ -219,7 +228,8 @@
   background: #fff;
 }
 
-.registration h2 {
+.registration h2,
+.practicalities h2 {
   margin: 0 0 0.75rem;
   font-weight: 500;
   color: var(--accent);
@@ -299,7 +309,7 @@
     gap: 1.5rem;
   }
 
-  .event-details,
+  .event-card,
   .registration {
     padding: 1.125rem;
   }
@@ -309,6 +319,7 @@
   }
 
   .registration,
+  .practicalities,
   .abstract {
     margin-top: 2rem;
   }
