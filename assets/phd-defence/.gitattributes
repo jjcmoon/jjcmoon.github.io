@@ -1,0 +1,2 @@
+# iCalendar requires CRLF line endings; preserve them in the published files.
+*.ics -text whitespace=cr-at-eol

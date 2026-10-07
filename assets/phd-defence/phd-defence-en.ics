@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Jaron Maene//PhD Defence//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:jaron-maene-phd-defence-20261201@maene.dev
+DTSTAMP:20261002T080446Z
+DTSTART:20261201T160000Z
+DTEND:20261201T180000Z
+SEQUENCE:1
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+SUMMARY;LANGUAGE=en:PhD Defence — Jaron Maene
+LOCATION;LANGUAGE=en:200M 00.06\, Celestijnenlaan 200M\, 3001 Heverlee\, Be
+ lgium
+DESCRIPTION;LANGUAGE=en:PhD defence of Jaron Maene at KU Leuven.\n\nThesis:
+  Neural Probabilistic Logic Programming with Circuits and Embeddings.\n\n1
+  December 2026\, 17:00–19:00 (Europe/Brussels).\n\nEvent details and att
+ endance registration: https://maene.dev/phd-defence/?lang=en
+URL:https://maene.dev/phd-defence/?lang=en
+END:VEVENT
+END:VCALENDAR

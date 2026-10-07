@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>PhD defence | Jaron Maene</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="PhD defence of Jaron Maene at KU Leuven.">
+  <link rel="canonical" href="https://maene.dev/phd-defence/">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="../assets/images/favicon/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&amp;display=swap">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="language.js" defer></script>
+  <script src="registration.js" defer></script>
+</head>
+
+<body class="defence-page">
+<main>
+  <nav class="language-switch" aria-label="Language / Taal" hidden>
+    <button type="button" data-language="en" lang="en" aria-pressed="true">English</button>
+    <button type="button" data-language="nl" lang="nl" aria-pressed="false">Nederlands</button>
+  </nav>
+  <header class="defence-intro">
+    <p class="invitation-eyebrow" data-i18n="invitationEyebrow">You're invited</p>
+    <h1 data-i18n="heading">PhD defence</h1>
+    <p class="candidate">Jaron Maene</p>
+    <p class="invitation-message" data-i18n="invitationMessage">I'd love for you to join me for my PhD defence and a drink afterwards.</p>
+    <a class="registration-link" href="#registration" data-registration-link data-i18n="registerAction" hidden>RSVP</a>
+  </header>
+
+  <dl class="event-details">
+    <div>
+      <dt data-i18n="dateLabel">Date</dt>
+      <dd class="event-date">
+        <strong data-i18n="date">1 December 2026</strong>
+        <span class="event-schedule">
+          <span data-i18n="defenceTime">Defence · 17:00–19:00</span>
+          <span data-i18n="receptionTime">Reception · from around 19:00</span>
+        </span>
+        <a class="calendar-link" id="calendar-download" href="../assets/phd-defence/phd-defence-en.ics" type="text/calendar" download data-i18n="calendarDownload">Add to calendar</a>
+      </dd>
+    </div>
+    <div>
+      <dt data-i18n="locationLabel">Locations</dt>
+      <dd>
+        <a class="event-venue" href="https://www.google.com/maps/search/?api=1&amp;query=Celestijnenlaan+200M,+3001+Heverlee" data-i18n="venue">Defence · 200M 00.06</a>
+        <span class="event-address">Celestijnenlaan 200M, 3001 Heverlee</span>
+        <div class="reception-location">
+          <a class="event-venue" href="https://www.google.com/maps/place/Departement+computerwetenschappen/@50.8668812,4.6790574,14z/data=!4m6!3m5!1s0x47c16110fd300347:0x46c648b1747e02ae!8m2!3d50.8641528!4d4.6787596!16s%2Fg%2F1tvykxw7?entry=ttu&amp;g_ep=EgoyMDI2MDkyOS4wIKXMDSoASAFQAw%3D%3D" data-i18n="receptionVenue">Reception · Computer Science foyer</a>
+          <span class="event-address">Celestijnenlaan 200A, 3001 Heverlee</span>
+        </div>
+        <span class="online-attendance" data-i18n="onlineAttendance">You can also join online. A link will be emailed after registration.</span>
+      </dd>
+    </div>
+  </dl>
+
+  <!-- Published Tally form IDs: Dutch first, then English. -->
+  <section class="registration" id="registration" tabindex="-1" aria-labelledby="registration-title" data-tally-form-id="9q8VRQ" data-tally-form-id-en="eqkzgx" hidden>
+    <h2 id="registration-title" data-i18n="registrationHeading">Join the defence</h2>
+    <p data-i18n="registrationIntro">Please let me know how you will join the defence and whether you will attend the reception.</p>
+    <p class="registration-language-note" hidden></p>
+    <div class="registration-form"></div>
+  </section>
+
+  <details class="abstract">
+    <summary><h2 data-i18n="abstractHeading">About the thesis</h2></summary>
+    <h3 class="abstract-title" data-i18n="thesisTitle">Neural probabilistic logic programming with circuits and embeddings</h3>
+    <p class="supervisor"><span data-i18n="supervisorLabel">Supervisor</span>: <a href="https://wms.cs.kuleuven.be/people/lucderaedt">Prof. dr. Luc De Raedt</a></p>
+    <p data-i18n="abstract1">
+      Modern artificial intelligence excels at learning from data.
+      A neural network can for instance recognise traffic lights and pedestrians in images.
+      Yet a safe self-driving car should also know that it must stop at a red light.
+      This thesis investigates systems in which people can write down such rules instead of expecting the computer to learn them.
+    </p>
+    <p data-i18n="abstract2">
+      Neural networks learn from raw data, while symbolic programs express human-readable rules.
+      <em>Neurosymbolic artificial intelligence</em> combines these two in a single system.
+      In the car example, the learning component may estimate the chance that a traffic light is red.
+      The rule-based component then uses this estimate to decide how to behave.
+      Such systems can require fewer examples, are easier to adjust, and are more trustworthy.
+    </p>
+    <p data-i18n="abstract3">
+      The first part of the thesis concerns the computation in neurosymbolic systems.
+      This computation is difficult as there are too many different possibilities to evaluate.
+      We first develop a single method to perform many different calculations on a neurosymbolic system.
+      Next, we analyse when answers are too expensive to calculate, and propose a new way to estimate answers with guarantees.
+      Finally, we also rearrange rule-based calculations to fit them on the same computer chips used by neural networks.
+      In some tests, this makes them up to ten thousand times faster.
+    </p>
+    <p data-i18n="abstract4">
+      The second part of the thesis concerns the meaning of the rules we wrote down.
+      For rules, different symbols such as <code>chair</code> and <code>cat</code>, or <code>cat</code> and <code>kitten</code> are just as unrelated.
+      A neural system on the other hand can quantify how similar concepts are.
+      This thesis investigates on how to use this similarity when reasoning with rules.
+      Together, our contributions make it easier to specify a neurosymbolic systems and makes their computation faster.
+    </p>
+  </details>
+
+  <!-- Add practical links here.
+  <nav class="defence-links" aria-label="Defence links">
+    <a href="">registration</a>
+    <a href="">directions</a>
+    <a href="">thesis</a>
+  </nav>
+  -->
+</main>
+
+<footer class="defence-footer">
+  <a href="../">maene.dev</a>
+</footer>
+</body>
+</html>
