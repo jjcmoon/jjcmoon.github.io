@@ -12,7 +12,7 @@
     receptionTime: "Receptie · vanaf ongeveer 19.00 uur",
     registerAction: "RSVP",
     locationLabel: "Locaties",
-    venue: "Verdediging · 200M 00.06",
+    venue: "Verdediging · Aula Erik Duval (200A)",
     receptionVenue: "Receptie · Foyer Computerwetenschappen",
     practicalitiesHeading: "Praktische informatie",
     parkingAccess: 'Als je met de auto komt, kun je de <a href="https://www.google.com/maps/search/?api=1&amp;query=Parking+Kapeldreef,+KU+Leuven,+3001+Heverlee">parking Kapeldreef</a> gebruiken met de code 92710#.',

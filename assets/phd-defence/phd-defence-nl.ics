@@ -4,15 +4,15 @@ PRODID:-//Jaron Maene//PhD Defence//EN
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:jaron-maene-phd-defence-20261201@maene.dev
-DTSTAMP:20261002T080446Z
+DTSTAMP:20261009T152738Z
 DTSTART:20261201T160000Z
 DTEND:20261201T180000Z
-SEQUENCE:1
+SEQUENCE:2
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 SUMMARY;LANGUAGE=nl:Doctoraatsverdediging — Jaron Maene
-LOCATION;LANGUAGE=nl:200M 00.06\, Celestijnenlaan 200M\, 3001 Heverlee\, Be
- lgië
+LOCATION;LANGUAGE=nl:Aula Erik Duval (gebouw Computerwetenschappen 200A)\,
+  Celestijnenlaan 200A\, 3001 Heverlee\, België
 DESCRIPTION;LANGUAGE=nl:Doctoraatsverdediging van Jaron Maene aan KU Leuven
  .\n\nProefschrift: Neuraal-probabilistisch logisch programmeren met circui
  ts en embeddings.\n\n1 december 2026\, 17.00–19.00 uur (Europe/Brussels)
